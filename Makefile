@@ -3,10 +3,10 @@ CC			= cc
 FLAGS		= 
 LIBMLX		= -I ../minilibx-linux
 
-MAIN		= $(addprefix srcs/, cub3d)
+MAIN		= $(addprefix src/, cub3d)
 
 SRC			= $(MAIN:=.c)
-OBJ			= $(addprefix $(MAIN:=.o))
+OBJ			= $(MAIN:=.o)
 HEADER		= includes/cub3d.h
 CUB3DHEADER = -Iincludes 
 
