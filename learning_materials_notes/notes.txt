@@ -13,3 +13,8 @@
 5-hooks moves ...
 6-parser
 7-free exiting tweaks ...
+
+initialize mlx mlx_init();
+Open window mlx_new_window(game->mlx, game->screen_w, game->screen_h,"cub3D");
+Create image pointer mlx_new_image(game->mlx, game->screen_w, game->screen_h);
+set up img array mlx_get_data_addr
