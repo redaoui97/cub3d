@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/20 18:42:59 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/21 13:35:11 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,13 @@
 # define GAME_WIDTH 1024
 #endif
 
-typedef struct s_global_settings
-{
-	t_mlx_settings	mlxset;
-	
-}			 	t_global_settings;
-
 typedef struct s_img
 {
 	void		*img;
 	int			*arr;
+	int			bits_per_pixel;
+	int			size_line;
+	int			endian;
 }				t_img;
 
 typedef struct s_mlx_settings
@@ -48,4 +45,11 @@ typedef struct s_mlx_settings
 	void		*win_ptr;
 	t_img		*img;
 }				t_mlx_settings;
+
+typedef struct s_global_settings
+{
+	t_mlx_settings	mlxset;
+	
+}			 	t_global_settings;
+
 #endif

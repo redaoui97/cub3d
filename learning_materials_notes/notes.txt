@@ -18,3 +18,7 @@ initialize mlx mlx_init();
 Open window mlx_new_window(game->mlx, game->screen_w, game->screen_h,"cub3D");
 Create image pointer mlx_new_image(game->mlx, game->screen_w, game->screen_h);
 set up img array mlx_get_data_addr
+
+21/04:
++segfault on set_up_game/setting img arr on NULL values; Had to give bpp, size, endian
++added some variables to the img struct;

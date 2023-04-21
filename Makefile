@@ -1,9 +1,9 @@
 NAME		= cub3D
 CC			= cc
-FLAGS		= 
+FLAGS		= -Wall -Werror -Wextra -fsanitize=memory
 LIBMLX		= -I ../minilibx-linux
 
-MAIN		= $(addprefix src/, cub3d)
+MAIN		= $(addprefix src/, cub3d) 
 
 SRC			= $(MAIN:=.c)
 OBJ			= $(MAIN:=.o)
