@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:34:14 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/21 15:23:48 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/21 15:47:50 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ int main(int argc, char **argv)
 	if (argc != 2)
 		fatal_error("Program must have 1 argument!");
 	/*game init*/
-	set_up_game(&game);
+	if (set_up_game(&game) == EXIT_FAILURE)
+		fatal_error("Error setting up mlx settings!");
 	/*map check*/
-	map_check(argv[1]);
+	//add protection
+	//map_check(argv[1]);
+	execution(&game);
 	mlx_loop(game.mlxset.mlx);
 }

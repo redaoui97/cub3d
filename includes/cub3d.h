@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/21 15:17:12 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/21 15:49:02 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ typedef struct s_global_settings
 /*=============FUNCTION PROTOTYPES=============*/
 
 /*===============main functions================*/
+
+/*===========execution functions===========*/
+void	execution(t_global_settings *game);
 
 /*==============parsing functions==============*/
 void	map_check(char *map_file);
