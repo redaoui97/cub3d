@@ -3,7 +3,9 @@ CC			= cc
 FLAGS		= -Wall -Werror -Wextra -fsanitize=memory
 LIBMLX		= -I ../minilibx-linux
 
-MAIN		= $(addprefix src/, cub3d) 
+MAIN		= $(addprefix src/, cub3d $(ERRORS) $(UTILS)) 
+ERRORS		= $(addprefix errors/, error)
+UTILS		= $(addprefix utils/, utils1)
 
 SRC			= $(MAIN:=.c)
 OBJ			= $(MAIN:=.o)

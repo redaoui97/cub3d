@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/21 13:35:11 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/21 14:15:08 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,15 @@ typedef struct s_global_settings
 	
 }			 	t_global_settings;
 
+/*=============FUNCTION PROTOTYPES=============*/
+
+/*===============main functions================*/
+
+/*===============error functions===============*/
+void	fatal_error(char *msg);
+
+/*===============utils functions===============*/
+int		ft_strlen(char *msg);
+
+/*===========END FUNCTION PROTOTYPES===========*/
 #endif

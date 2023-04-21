@@ -22,3 +22,5 @@ set up img array mlx_get_data_addr
 21/04:
 +segfault on set_up_game/setting img arr on NULL values; Had to give bpp, size, endian
 +added some variables to the img struct;
++added game loop
++added some functions ft_strlen fatal_error 

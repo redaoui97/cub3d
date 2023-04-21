@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:34:14 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/21 13:36:05 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/21 14:24:10 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ int main(int argc, char **argv)
 {
 	t_global_settings game;
 	
-	//argc protection
-	//map reading
-	//map parsing
+	if (argc != 2)
+		fatal_error("Program must have 1 argument!");
 	set_up_game(&game);
+	//map management
+	mlx_loop(game.mlxset.mlx);
 }
