@@ -38,9 +38,9 @@ $(NAME): $(OBJ) $(HEADER)
 	$(CC) $(CUB3DHEADER) $(FLAGS) -g -I/usr/include -I../mlx_linux -O3 -c $< -o $@
 
 clean:
-	rm $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
