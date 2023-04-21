@@ -1,11 +1,25 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/04/21 14:30:38 by rnabil            #+#    #+#              #
+#    Updated: 2023/04/21 14:38:55 by rnabil           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		= cub3D
 CC			= cc
 FLAGS		= -Wall -Werror -Wextra -fsanitize=memory
 LIBMLX		= -I ../minilibx-linux
 
-MAIN		= $(addprefix src/, cub3d $(ERRORS) $(UTILS)) 
+GAME		= $(addprefix game_settings/, game_settings)
 ERRORS		= $(addprefix errors/, error)
 UTILS		= $(addprefix utils/, utils1)
+PARSING		= $(addprefix parsing/, parsing)
+MAIN		= $(addprefix src/, cub3d $(ERRORS) $(UTILS) $(PARSING) $(GAME)) 
 
 SRC			= $(MAIN:=.c)
 OBJ			= $(MAIN:=.o)
