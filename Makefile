@@ -32,10 +32,10 @@ CUB3DHEADER = -Iincludes
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
-	$(CC) $(OBJ) -I/usr/include -L../mlx_linux -L/usr/lib -I../mlx_linux ../mlx_linux/libmlx.a -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJ) $(FLAGS) -g -I/usr/include -L../mlx_linux -L/usr/lib -I../mlx_linux ../mlx_linux/libmlx.a -lXext -lX11 -lm -lz -o $(NAME)
 
 %.o: %.c $(HEADER)
-	$(CC) $(CUB3DHEADER) -I/usr/include -I../mlx_linux -O3 -c $< -o $@
+	$(CC) $(CUB3DHEADER) $(FLAGS) -g -I/usr/include -I../mlx_linux -O3 -c $< -o $@
 
 clean:
 	rm $(OBJ)
