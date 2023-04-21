@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:29:03 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/21 15:05:01 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/21 15:25:05 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static	int	file_check(char *mapfile)
 	fd = open(mapfile, O_RDONLY);
 	if (fd == -1)
 		fatal_error("Error reading map! Check if the map exists \
-			and is accessible!");
+		and is accessible!");
+	return (fd);
 }
 
 void	map_check(char *map_file)

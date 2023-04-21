@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/21 14:50:38 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/21 15:17:12 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_mlx_settings
 {
 	void		*mlx;
 	void		*win_ptr;
-	t_img		*img;
+	t_img		img;
 }				t_mlx_settings;
 
 typedef struct s_global_settings
