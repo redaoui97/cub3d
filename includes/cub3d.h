@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/24 15:35:00 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/24 17:53:33 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,20 @@ typedef struct s_global_settings
 	double			planeY;
 	double			dirX;
 	double			dirY;
-	double			mapX;
-	double			mapY;
 	double			stepX;
 	double			stepY;
 	double			sideDistX;
 	double			sideDistY;
+	double			perp_wall_dist;
+	double			line_height;
+	double			draw_start;
+	double			draw_end;
+	char			**map;
+	int				mapX;
+	int				mapY;
 	int				hit;
 	int				x;
+	int				side;
 	
 }			 	t_global_settings;
 
@@ -84,7 +90,9 @@ typedef struct s_global_settings
 
 /*===========execution functions===========*/
 void	execution(t_global_settings *game);
-void	calc_ray(t_global_settings *game);
+void	init_ray(t_global_settings *game);
+void	raycasting(t_global_settings *game);
+void	find_wall(t_global_settings *game);
 /*==============parsing functions==============*/
 void	map_check(char *map_file);
 
