@@ -6,11 +6,26 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:37:02 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/21 15:44:44 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/24 18:07:11 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+//delete this later
+static void	init_map(t_global_settings *game)
+{
+	game->map = {
+		{'1','1','1','1','1','1','1','1'},
+		{'1','0','0','0','0','0','0','1'},
+		{'1','0','1','0','0','1','0','1'},
+		{'1','0','0','0','0','0','0','1'},
+		{'1','0','0','0','0','0','0','1'},
+		{'1','0','0','N','0','0','0','1'},
+		{'1','0','0','0','0','0','0','1'},
+		{'1','1','1','1','1','1','1','1'},
+	};
+}
 
 /*initializes mlx; opens a window; sets up the img and img array*/
 int	set_up_game(t_global_settings *game)
@@ -32,5 +47,6 @@ int	set_up_game(t_global_settings *game)
 		&(game->mlxset.img.endian));
 	if (game->mlxset.img.arr == NULL)
 		return (EXIT_FAILURE);
+	init_map(game);
 	return (EXIT_SUCCESS);
 }
