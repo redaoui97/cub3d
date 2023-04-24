@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/21 15:49:02 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/24 15:35:00 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,35 @@ typedef struct s_mlx_settings
 	t_img		img;
 }				t_mlx_settings;
 
+typedef	struct	s_ray
+{
+	double		rayDirX;
+	double		rayDirY;
+	double		deltaDistX;
+	double		deltaDistY;
+	int			map_x;
+	int			map_y;
+}				t_ray;
+
 typedef struct s_global_settings
 {
 	t_mlx_settings	mlxset;
+	t_ray			ray;
+	double			cameraX;
+	double			posX;
+	double			posY;
+	double			planeX;
+	double			planeY;
+	double			dirX;
+	double			dirY;
+	double			mapX;
+	double			mapY;
+	double			stepX;
+	double			stepY;
+	double			sideDistX;
+	double			sideDistY;
+	int				hit;
+	int				x;
 	
 }			 	t_global_settings;
 
@@ -58,7 +84,7 @@ typedef struct s_global_settings
 
 /*===========execution functions===========*/
 void	execution(t_global_settings *game);
-
+void	calc_ray(t_global_settings *game);
 /*==============parsing functions==============*/
 void	map_check(char *map_file);
 

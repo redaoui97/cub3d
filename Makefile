@@ -6,7 +6,7 @@
 #    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 14:30:38 by rnabil            #+#    #+#              #
-#    Updated: 2023/04/21 15:48:32 by rnabil           ###   ########.fr        #
+#    Updated: 2023/04/24 15:12:36 by rnabil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC			= cc
 FLAGS		= -Wall -Werror -Wextra -fsanitize=address
 LIBMLX		= -I ../minilibx-linux
 
-EXECUTION	= $(addprefix execution/, execution)
+EXECUTION	= $(addprefix execution/, execution dda)
 GAME		= $(addprefix game_settings/, game_settings)
 ERRORS		= $(addprefix errors/, error)
 UTILS		= $(addprefix utils/, utils1)
