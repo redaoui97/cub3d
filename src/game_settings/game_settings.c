@@ -15,7 +15,7 @@
 //delete this later
 static void	init_map(t_global_settings *game)
 {
-	game->map = {
+	char map[8][8] = {
 		{'1','1','1','1','1','1','1','1'},
 		{'1','0','0','0','0','0','0','1'},
 		{'1','0','1','0','0','1','0','1'},
@@ -25,6 +25,12 @@ static void	init_map(t_global_settings *game)
 		{'1','0','0','0','0','0','0','1'},
 		{'1','1','1','1','1','1','1','1'},
 	};
+	game->map = malloc(sizeof(char *) * 8);
+	for(int i=0; i<8; i++)
+	{
+		game->map[i] = malloc(sizeof(int)*8);
+		memcpy(game->map[i], map[i], 8);
+	}
 }
 
 /*initializes mlx; opens a window; sets up the img and img array*/

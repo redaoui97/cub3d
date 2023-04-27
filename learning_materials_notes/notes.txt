@@ -24,3 +24,15 @@ set up img array mlx_get_data_addr
 +added some variables to the img struct;
 +added game loop
 +added some functions ft_strlen fatal_error 
+
+
+Variables needed:
+posX posY 	position vector of the player in the map.
+dirX dirY 	direction vector of the player in the map.
+planX planY	camera plane of the player in the map.
+
+Info:
+- Camera plan should be perpendicular to the direction.
+- FOV is a angle. (determined by the length of the direction and the camera plane)
+- Direction is represented as double X and Y values between -1 and 1.
+- 
