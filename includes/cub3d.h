@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/24 17:53:33 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/27 11:01:03 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <sys/errno.h>
 # include <math.h>
 # include <string.h>
-# include "../../mlx_linux/mlx.h"
+# include "mlx.h"
 
 #ifndef GAME_HEIGHT
 # define GAME_HEIGHT 1024
