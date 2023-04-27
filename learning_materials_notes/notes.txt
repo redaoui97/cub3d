@@ -24,3 +24,5 @@ set up img array mlx_get_data_addr
 +added some variables to the img struct;
 +added game loop
 +added some functions ft_strlen fatal_error 
+
+++fix makefile on mac branch
