@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:37:02 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/27 11:10:35 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/27 13:35:08 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 //delete this later
 static void	init_map(t_global_settings *game)
 {
-	
-	game->map = {
+	char map[8][8] = {
 		{'1','1','1','1','1','1','1','1'},
 		{'1','0','0','0','0','0','0','1'},
 		{'1','0','1','0','0','1','0','1'},
@@ -26,6 +25,12 @@ static void	init_map(t_global_settings *game)
 		{'1','0','0','0','0','0','0','1'},
 		{'1','1','1','1','1','1','1','1'},
 	};
+	game->map = malloc(sizeof(char *) * 8);
+	for(int i=0; i<8; i++)
+	{
+		game->map[i] = malloc(sizeof(int)*8);
+		ft_memcpy(game->map[i], map[i], 8);
+	}
 }
 
 /*initializes mlx; opens a window; sets up the img and img array*/

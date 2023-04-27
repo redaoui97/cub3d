@@ -6,42 +6,58 @@
 #    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 14:30:38 by rnabil            #+#    #+#              #
-#    Updated: 2023/04/24 15:12:36 by rnabil           ###   ########.fr        #
+#    Updated: 2023/04/27 13:46:20 by rnabil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= cub3D
+	
 CC			= cc
-FLAGS		= -Wall -Werror -Wextra -fsanitize=address
-LIBMLX		= -I ../minilibx-linux
+FLAGS		= -Wall -Wextra -Werror
+RM			= rm -rf
+
+INCLUDES	= -I /usr/local/include
+LIBMLX		= -L /usr/local/lib
+
+OBJDIR = .objFiles
+OBJ            = $(MAIN:=.o)
+SRC            = $(MAIN:=.c)
+OBJ            = $(MAIN:=.o)
+HEADER        = includes/cub3d.h
+CUB3DHEADER = -Iincludes
 
 EXECUTION	= $(addprefix execution/, execution dda)
 GAME		= $(addprefix game_settings/, game_settings)
 ERRORS		= $(addprefix errors/, error)
 UTILS		= $(addprefix utils/, utils1)
 PARSING		= $(addprefix parsing/, parsing)
-MAIN		= $(addprefix src/, cub3d $(ERRORS) $(UTILS) $(PARSING) $(GAME) $(EXECUTION)) 
+FILES		= $(addprefix src/, cub3d $(ERRORS) $(UTILS) $(PARSING) $(GAME) $(EXECUTION)) 
 
-SRC			= $(MAIN:=.c)
-OBJ			= $(MAIN:=.o)
-HEADER		= includes/cub3d.h
-CUB3DHEADER = -Iincludes 
-
+SRC			= $(FILES:=.c)
+OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
+HEADER		= $(addprefix includes/, cub3d.h)
+CUB3DHEADER = -I includes
 
 .PHONY: all clean fclean re bonus norm
 
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
-	$(CC) $(OBJ) $(FLAGS) -g -I/usr/include -L../mlx_linux -L/usr/lib -I../mlx_linux ../mlx_linux/libmlx.a -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJ) $(INCLUDES) $(CUB3DHEADER) $(LIBMLX) $(OPTS) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
-%.o: %.c $(HEADER)
-	$(CC) $(CUB3DHEADER) $(FLAGS) -g -I/usr/include -I../mlx_linux -O3 -c $< -o $@
+$(OBJDIR)/%.o: %.c $(HEADER)
+	mkdir -p $(dir $@)
+	$(CC) -Wall -Wextra -Werror $(OPTS) $(CUB3DHEADER) $(OPTS) -c $< -o $@
+
+NAME		= cub3D
+CC			= cc
+FLAGS		= -Wall -Werror -Wextra -fsanitize=address
+LIBMLX		= -I ../minilibx-linux
 
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJDIR) $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all

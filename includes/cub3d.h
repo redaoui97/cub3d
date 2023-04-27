@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/27 11:01:03 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/27 13:36:36 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void	simple_error(char *msg);
 
 /*===============utils functions===============*/
 int		ft_strlen(char *msg);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 
 /*===========game settings functions===========*/
 int		set_up_game(t_global_settings *game);
