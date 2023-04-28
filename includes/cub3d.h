@@ -20,7 +20,7 @@
 # include <sys/errno.h>
 # include <math.h>
 # include <string.h>
-# include "mlx.h"
+# include "../../mlx_linux/mlx.h"
 
 # define GAME_HEIGHT 1024
 # define GAME_WIDTH 1024
