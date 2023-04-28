@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:11:33 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/27 14:17:33 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/28 12:51:11 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 void	raycasting(t_global_settings *game)
 {
-	init_ray(game);
-	find_wall(game);
-	
+	while (game->x < GAME_WIDTH)
+	{
+		init_ray(game);
+		(game->x)++;
+	}	
 	mlx_put_image_to_window(game->mlxset.mlx, game->mlxset.win_ptr, game->mlxset.img.img, 0, 0);
 }
 

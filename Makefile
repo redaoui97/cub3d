@@ -6,14 +6,14 @@
 #    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 14:30:38 by rnabil            #+#    #+#              #
-#    Updated: 2023/04/27 13:46:20 by rnabil           ###   ########.fr        #
+#    Updated: 2023/04/28 11:15:41 by rnabil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= cub3D
 	
 CC			= cc
-FLAGS		= -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror -fsanitze=address
 RM			= rm -rf
 
 INCLUDES	= -I /usr/local/include
