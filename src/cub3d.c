@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:34:14 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/24 17:53:02 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/28 15:05:33 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main(int argc, char **argv)
 	/*map check*/
 	//add protection
 	//map_check(argv[1]);
-	execution(&game);
+	mlx_hook(game.mlxset.win_ptr, 2, 0, key_press, &game);
+	mlx_loop_hook(game.mlxset.mlx ,execution, &game);
 	mlx_loop(game.mlxset.mlx);
 }

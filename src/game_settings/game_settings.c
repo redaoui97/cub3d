@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:37:02 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/28 12:57:08 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/28 15:19:25 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	init_map(t_global_settings *game)
 	char map[8][8] = {
 		{'1','1','1','1','1','1','1','1'},
 		{'1','0','0','0','0','0','0','1'},
-		{'1','0','1','0','0','1','0','1'},
+		{'1','0','0','0','0','0','0','1'},
 		{'1','0','0','0','0','0','0','1'},
 		{'1','0','0','0','0','0','0','1'},
 		{'1','0','0','N','0','0','0','1'},
@@ -35,40 +35,40 @@ static void	init_map(t_global_settings *game)
 
 static void	init_game_values(t_global_settings *game)
 {
-	game->r_angle = 0.2;
-	game->m_speed = 0.4;
+
 	game->planeX = 0.0;
 	game->planeY = 0.66;
-	game->pos_x = game->map.player.x;
-	game->pos_y = game->map.player.y;
-	if (game->map.starting_pos == 'N')
-	{
+	//manually sat so far
+	game->posX = 3;
+	game->posY = 5;
+	//if (game->map.starting_pos == 'N')
+	//{
 		game->dirX = -1.0;
 		game->dirY = 0.0;
 		game->planeX = 0.0;
 		game->planeY = 0.66;
-	}
-	if (game->map.starting_pos == 'S')
-	{
-		game->dirX = 1.0;
-		game->dirY = 0.0;
-		game->planeX = 0.0;
-		game->planeY = -0.66;
-	}
-	if (game->map.starting_pos == 'E')
-	{
-		game->dirX = 0.0;
-		game->dirY = 1.0;
-		game->planeX = 0.66;
-		game->planeY = 0.0;
-	}
-	if (game->map.starting_pos == 'W')
-	{
-		game->dirX = 0.0;
-		game->dirY = -1.0;
-		game->planeX = -0.66;
-		game->planeY = 0.0;
-	}
+	//}
+	// if (game->map.starting_pos == 'S')
+	// {
+	// 	game->dirX = 1.0;
+	// 	game->dirY = 0.0;
+	// 	game->planeX = 0.0;
+	// 	game->planeY = -0.66;
+	// }
+	// if (game->map.starting_pos == 'E')
+	// {
+	// 	game->dirX = 0.0;
+	// 	game->dirY = 1.0;
+	// 	game->planeX = 0.66;
+	// 	game->planeY = 0.0;
+	// }
+	// if (game->map.starting_pos == 'W')
+	// {
+	// 	game->dirX = 0.0;
+	// 	game->dirY = -1.0;
+	// 	game->planeX = -0.66;
+	// 	game->planeY = 0.0;
+	// }
 }
 
 /*initializes mlx; opens a window; sets up the img and img array*/

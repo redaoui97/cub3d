@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:11:33 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/28 12:51:11 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/28 15:12:47 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,12 +106,10 @@ void	init_ray(t_global_settings *game)
 	int	i;
 
 	i = -1;
+	//change color 
 	while (++i < game->draw_start)
-		game->mlxset.img.arr[i * GAME_WIDTH + game->x] = 0x000000;	
+		game->mlxset.img.arr[i * GAME_WIDTH + game->x] = 0x87ceeb;	
 	i = game->draw_end;
 	while (++i < GAME_HEIGHT)
-		game->mlxset.img.arr[i * GAME_WIDTH + game->x] = 0xffffff;
+		game->mlxset.img.arr[i * GAME_WIDTH + game->x] = 0x7CFC00;
 }
-
-//F 81,41,28
-//C 53,168,230

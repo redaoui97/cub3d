@@ -6,7 +6,7 @@
 #    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 14:30:38 by rnabil            #+#    #+#              #
-#    Updated: 2023/04/28 11:15:41 by rnabil           ###   ########.fr        #
+#    Updated: 2023/04/28 15:01:18 by rnabil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ OBJ            = $(MAIN:=.o)
 HEADER        = includes/cub3d.h
 CUB3DHEADER = -Iincludes
 
-EXECUTION	= $(addprefix execution/, execution dda)
+EXECUTION	= $(addprefix execution/, execution dda hooks)
 GAME		= $(addprefix game_settings/, game_settings)
 ERRORS		= $(addprefix errors/, error)
 UTILS		= $(addprefix utils/, utils1)

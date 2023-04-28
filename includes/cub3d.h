@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/27 14:08:28 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/28 15:32:57 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,16 @@
 # include <string.h>
 # include "mlx.h"
 
-#ifndef GAME_HEIGHT
 # define GAME_HEIGHT 1024
-#endif
-
-#ifndef GAME_WIDTH
 # define GAME_WIDTH 1024
-#endif
+# define SPEED 0.4
+# define ANGLE 0.2
+# define UP_KEY 13
+# define DOWN_KEY 1
+# define LEFT_KEY 2
+# define RIGHT_KEY 0
+# define LEFT_ARROW_KEY 123
+# define RIGHT_ARROW_KEY 124
 
 typedef struct s_img
 {
@@ -75,6 +78,9 @@ typedef struct s_global_settings
 	double			line_height;
 	double			draw_start;
 	double			draw_end;
+	
+	//type			ceiling_color;
+	//type			floor_color;
 	char			**map;
 	int				mapX;
 	int				mapY;
@@ -89,13 +95,20 @@ typedef struct s_global_settings
 /*===============main functions================*/
 
 /*===========execution functions===========*/
-void	execution(t_global_settings *game);
+int		execution(t_global_settings *game);
 void	init_ray(t_global_settings *game);
 void	raycasting(t_global_settings *game);
 void	find_wall(t_global_settings *game);
+
+int   	key_press(int key_pressed, t_global_settings *game);
+void    go_straight(t_global_settings *game);
+void    go_back(t_global_settings *game);
+void    go_left(t_global_settings *game);
+void    go_right(t_global_settings *game);
+void	rotate_left(t_global_settings *game);
+void	rotate_right(t_global_settings *game);
 /*==============parsing functions==============*/
 void	map_check(char *map_file);
-
 /*===============error functions===============*/
 void	fatal_error(char *msg);
 void	simple_error(char *msg);
