@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/28 15:32:57 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/30 13:58:54 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,14 @@ typedef	struct	s_ray
 	int			map_y;
 }				t_ray;
 
+typedef struct	s_map
+{
+	char		**map;
+	int			starting_x;
+	int			starting_y;
+	char		direction;
+}				t_map;
+
 typedef struct s_global_settings
 {
 	t_mlx_settings	mlxset;
@@ -81,7 +89,7 @@ typedef struct s_global_settings
 	
 	//type			ceiling_color;
 	//type			floor_color;
-	char			**map;
+	t_map			map;
 	int				mapX;
 	int				mapY;
 	int				hit;
@@ -107,6 +115,8 @@ void    go_left(t_global_settings *game);
 void    go_right(t_global_settings *game);
 void	rotate_left(t_global_settings *game);
 void	rotate_right(t_global_settings *game);
+int 	rgb_to_color(unsigned int red, unsigned int green, unsigned int blue);
+
 /*==============parsing functions==============*/
 void	map_check(char *map_file);
 /*===============error functions===============*/

@@ -38,3 +38,9 @@ Info:
 - FOV is a angle. (determined by the length of the direction and the camera plane)
 - Direction is represented as double X and Y values between -1 and 1.
 - 
+
+Fix the raycaster: fix the rays issue, reconstructe the algorithm
+map parser and game datastructure
+color parser
+
+--
