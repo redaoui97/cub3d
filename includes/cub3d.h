@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/30 13:58:54 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/30 16:19:33 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@
 
 # define GAME_HEIGHT 1024
 # define GAME_WIDTH 1024
-# define SPEED 0.4
+# define SPEED 0.1
 # define ANGLE 0.2
 # define UP_KEY 13
 # define DOWN_KEY 1
-# define LEFT_KEY 2
-# define RIGHT_KEY 0
+# define LEFT_KEY 0
+# define RIGHT_KEY 2
 # define LEFT_ARROW_KEY 123
 # define RIGHT_ARROW_KEY 124
 

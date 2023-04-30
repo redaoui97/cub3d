@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 13:58:19 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/28 16:36:59 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/04/30 16:20:51 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,20 +49,49 @@ void    rotate_right(t_global_settings *game)
 
 void    go_straight(t_global_settings *game)
 {
-    game->posX += SPEED;
+    if ((game->map.map)[(int)(game->posX + game->dirX * SPEED)][(int)(game->posY)] != '1')
+    {
+        game->posX += game->dirX * SPEED;
+    }
+	if ((game->map.map)[(int)(game->posX)][(int)(game->posY + game->dirY * SPEED)] != '1')
+	{
+		game->posY += game->dirY * SPEED;
+	}
 }
 
 void    go_back(t_global_settings *game)
 {
-    game->posX -= SPEED;
+	if ((game->map.map)[(int)(game->posX - game->dirX * SPEED)][(int)(game->posY)] != '1')
+    {
+        game->posX -= game->dirX * SPEED;
+    }
+	if ((game->map.map)[(int)(game->posX)][(int)(game->posY - game->dirY * SPEED)] != '1')
+	{
+		game->posY -= game->dirY * SPEED;
+	}
 }
 
 void    go_left(t_global_settings *game)
 {
-    game->posY += SPEED;
+	if ((game->map.map[(int)(game->posX + game->dirX - game->planeX)][(int)(game->posY)] != '1'))
+	{
+		game->posX -= game->planeX * SPEED;
+	}
+	if ((game->map.map[(int)(game->posX)][(int)(game->posY + game->dirY - game->planeY)] != '1'))
+	{
+		game->posY -= game->planeY * SPEED;
+	}
 }
 
 void    go_right(t_global_settings *game)
 {
-    game->posY -= SPEED;
+		printf("hh");
+	if ((game->map.map[(int)(game->posX + game->dirX + game->planeX)][(int)(game->posY)] != '1'))
+	{
+		game->posX += game->planeX * SPEED;
+	}
+	if ((game->map.map[(int)(game->posX)][(int)(game->posY + game->dirY + game->planeY)] != '1'))
+	{
+		game->posY += game->planeY * SPEED;
+	}
 }
