@@ -221,7 +221,7 @@ int main(int /*argc*/, char */*argv*/[])
     {
       //both camera direction and camera plane must be rotated
       double oldDirX = dirX;
-      dirX = dirX * cos(-rotSpeed) - dirY * sin(-rotSpeed);
+      dirX = dirX * cos(-rotSpeed) - dir Y * sin(-rotSpeed);
       dirY = oldDirX * sin(-rotSpeed) + dirY * cos(-rotSpeed);
       double oldPlaneX = planeX;
       planeX = planeX * cos(-rotSpeed) - planeY * sin(-rotSpeed);
