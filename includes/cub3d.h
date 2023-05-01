@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/30 16:19:33 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/01 20:09:05 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define GAME_HEIGHT 1024
 # define GAME_WIDTH 1024
 # define SPEED 0.1
-# define ANGLE 0.2
+# define ROTATION_ANGLE 0.11
 # define UP_KEY 13
 # define DOWN_KEY 1
 # define LEFT_KEY 0
@@ -86,10 +86,9 @@ typedef struct s_global_settings
 	double			line_height;
 	double			draw_start;
 	double			draw_end;
-	
-	//type			ceiling_color;
-	//type			floor_color;
 	t_map			map;
+	int				ceiling_color;
+	int				floor_color;
 	int				mapX;
 	int				mapY;
 	int				hit;

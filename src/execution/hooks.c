@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 13:58:19 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/30 16:20:51 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/01 20:07:42 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,44 @@ int    key_press(int key_pressed, t_global_settings *game)
 
 void    rotate_left(t_global_settings *game)
 {
-    (void)game;
+	double	x;
+	double	y;
+	double	xp;
+	double	yp;
+	double	angle;
+	
+	
+	x = game->dirX;
+	y = game->dirY;
+	xp = game->planeX;
+	yp = game->planeY;
+	angle = ROTATION_ANGLE * -1;
+	game->dirX = x * cos(angle) - y * sin(angle);
+	game->dirY = x * sin(angle) + y * cos(angle);
+	game->planeX = xp * cos(angle) - yp * sin(angle);
+	game->planeY = xp * sin(angle) + yp * cos(angle);
+	printf("x:%f|y:%f\n", game->dirX, game->dirY);
 }
 
 void    rotate_right(t_global_settings *game)
 {
-    (void)game;
+    double	x;
+	double	y;
+	double	xp;
+	double	yp;
+	double	angle;
+	
+	
+	x = game->dirX;
+	y = game->dirY;
+	xp = game->planeX;
+	yp = game->planeY;
+	angle = ROTATION_ANGLE;
+	game->dirX = x * cos(angle) - y * sin(angle);
+	game->dirY = x * sin(angle) + y * cos(angle);
+	game->planeX = xp * cos(angle) - yp * sin(angle);
+	game->planeY = xp * sin(angle) + yp * cos(angle);
+	printf("x:%f|y:%f\n", game->dirX, game->dirY);
 }
 
 void    go_straight(t_global_settings *game)
@@ -85,7 +117,6 @@ void    go_left(t_global_settings *game)
 
 void    go_right(t_global_settings *game)
 {
-		printf("hh");
 	if ((game->map.map[(int)(game->posX + game->dirX + game->planeX)][(int)(game->posY)] != '1'))
 	{
 		game->posX += game->planeX * SPEED;

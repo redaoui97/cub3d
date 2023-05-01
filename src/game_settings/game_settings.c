@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:37:02 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/30 16:02:23 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/01 18:34:19 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ static void	init_map(t_global_settings *game)
 	//manually setting up the map struct values
 	char map[8][8] = {
 		{'1','1','1','1','1','1','1','1'},
-		{'1','0','0','0','0','0','0','1'},
-		{'1','0','0','0','0','0','0','1'},
-		{'1','0','0','0','0','0','0','1'},
 		{'1','0','0','1','0','0','0','1'},
-		{'1','0','1','N','1','0','0','1'},
 		{'1','0','0','1','0','0','0','1'},
+		{'1','0','0','1','0','0','0','1'},
+		{'1','0','0','1','0','0','0','1'},
+		{'1','0','0','N','0','0','0','1'},
+		{'1','0','0','0','0','0','0','1'},
 		{'1','1','1','1','1','1','1','1'},
 	};
 	game->map.map = malloc(sizeof(char *) * 8);
@@ -32,9 +32,9 @@ static void	init_map(t_global_settings *game)
 		(game->map.map)[i] = malloc(sizeof(int)*8);
 		ft_memcpy((game->map.map)[i], map[i], 8);
 	}
-	game->map.starting_x = 3;
-	game->map.starting_y = 5;
-	game->map.direction = 'N';
+	game->map.starting_x = 5;
+	game->map.starting_y = 3;
+	game->map.direction = 'W';
 }
 
 static void	init_game_values(t_global_settings *game)
@@ -42,14 +42,33 @@ static void	init_game_values(t_global_settings *game)
 	init_map(game);
 	game->posX = game->map.starting_x;
 	game->posY = game->map.starting_y;
-	game->planeX = 100;
-	game->planeY = 100;
 	if (game->map.direction == 'N')
 	{
 		game->dirX = -1;
 		game->dirY = 0;
 		game->planeX = 0;
 		game->planeY = 0.66;
+	}
+	else if (game->map.direction == 'S')
+	{
+		game->dirX = 1;
+		game->dirY = 0;
+		game->planeX = 0;
+		game->planeY = 0.66;
+	}
+	else if (game->map.direction == 'E')
+	{
+		game->dirX = 0;
+		game->dirY = 1;
+		game->planeX = 0.66;
+		game->planeY = 0;
+	}
+	else if (game->map.direction == 'W')
+	{
+		game->dirX = 0;
+		game->dirY = -1;
+		game->planeX = 0.66;
+		game->planeY = 0;
 	}
 }
 
