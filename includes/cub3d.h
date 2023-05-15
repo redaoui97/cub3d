@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: Mriskyin <Mriskyin-team@student.42.ma>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/01 20:09:05 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/15 19:26:04 by Mriskyin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,34 @@
 # define LEFT_ARROW_KEY 123
 # define RIGHT_ARROW_KEY 124
 
+typedef struct s_rgb {
+	int r;
+	int g;
+	int b;
+} t_rgb;
+
+typedef struct s_map {
+	char *n_t;
+	char *s_t;
+	char *w_t;
+	char *e_t;
+
+	int floor;
+	int ceiling;
+
+	char **map;
+	// how many rows in the map.
+	int y;
+
+	// player
+	char direction;
+	int init_x;
+	int init_y;
+}	t_map;
+
+// global var
+t_map m;
+
 typedef struct s_img
 {
 	void		*img;
@@ -58,14 +86,6 @@ typedef	struct	s_ray
 	int			map_x;
 	int			map_y;
 }				t_ray;
-
-typedef struct	s_map
-{
-	char		**map;
-	int			starting_x;
-	int			starting_y;
-	char		direction;
-}				t_map;
 
 typedef struct s_global_settings
 {
@@ -118,6 +138,8 @@ int 	rgb_to_color(unsigned int red, unsigned int green, unsigned int blue);
 
 /*==============parsing functions==============*/
 void	map_check(char *map_file);
+int		parse(char *file);
+
 /*===============error functions===============*/
 void	fatal_error(char *msg);
 void	simple_error(char *msg);

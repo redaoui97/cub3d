@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
+#    By: Mriskyin <Mriskyin-team@student.42.ma>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 14:30:38 by rnabil            #+#    #+#              #
-#    Updated: 2023/04/28 15:01:18 by rnabil           ###   ########.fr        #
+#    Updated: 2023/05/15 19:38:17 by Mriskyin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ $(NAME): $(OBJ) $(HEADER)
 	$(CC) $(OBJ) $(INCLUDES) $(CUB3DHEADER) $(LIBMLX) $(OPTS) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 $(OBJDIR)/%.o: %.c $(HEADER)
+	make -C src/libft
 	mkdir -p $(dir $@)
 	$(CC) -Wall -Wextra -Werror $(OPTS) $(CUB3DHEADER) $(OPTS) -c $< -o $@
 
@@ -56,8 +57,10 @@ LIBMLX		= -I ../minilibx-linux
 
 clean:
 	$(RM) $(OBJDIR) $(OBJ)
+	make -C src/libft clean
 
 fclean: clean
 	$(RM) $(NAME)
+	make -C src/libft fclean
 
 re: fclean all
