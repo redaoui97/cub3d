@@ -101,7 +101,8 @@ static int count_p(char **p)
 	while (p[i])
 		i++;
 	return i;
-} 
+}
+
 static int rgb_to_color(char red, char green, char blue) {
       return (red << 16) | (green << 8) | blue;
 }
