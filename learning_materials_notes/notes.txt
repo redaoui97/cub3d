@@ -44,3 +44,6 @@ map parser and game datastructure
 color parser
 
 --
+
+Parsing: 
++parse file : 

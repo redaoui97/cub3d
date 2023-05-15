@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/01 20:09:05 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/01 20:14:56 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,12 @@ typedef	struct	s_ray
 
 typedef struct	s_map
 {
-	char		**map;
-	int			starting_x;
-	int			starting_y;
-	char		direction;
+	char			**map;
+	char			direction;
+	int				starting_x;
+	int				starting_y;
+	int				ceiling_color;
+	int				floor_color;
 }				t_map;
 
 typedef struct s_global_settings
@@ -87,8 +89,6 @@ typedef struct s_global_settings
 	double			draw_start;
 	double			draw_end;
 	t_map			map;
-	int				ceiling_color;
-	int				floor_color;
 	int				mapX;
 	int				mapY;
 	int				hit;
