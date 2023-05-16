@@ -6,13 +6,13 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:37:02 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/01 18:34:19 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/16 14:36:12 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-//to delete
+//to delete : hard coded map and starting values
 static void	init_map(t_global_settings *game)
 {
 	//manually setting up the map struct values
@@ -39,7 +39,6 @@ static void	init_map(t_global_settings *game)
 
 static void	init_game_values(t_global_settings *game)
 {
-	init_map(game);
 	game->posX = game->map.starting_x;
 	game->posY = game->map.starting_y;
 	if (game->map.direction == 'N')
@@ -56,7 +55,11 @@ static void	init_game_values(t_global_settings *game)
 		game->planeX = 0;
 		game->planeY = 0.66;
 	}
-	else if (game->map.direction == 'E')
+}
+
+static void	init_game_values2(t_global_settings *game)
+{
+	if (game->map.direction == 'E')
 	{
 		game->dirX = 0;
 		game->dirY = 1;
@@ -71,7 +74,6 @@ static void	init_game_values(t_global_settings *game)
 		game->planeY = 0;
 	}
 }
-
 /*initializes mlx; opens a window; sets up the img and img array*/
 int	set_up_game(t_global_settings *game)
 {
@@ -92,6 +94,9 @@ int	set_up_game(t_global_settings *game)
 		&(game->mlxset.img.endian));
 	if (game->mlxset.img.arr == NULL)
 		return (EXIT_FAILURE);
+	//delete later this line as it must be in parser
+	init_map(game);
 	init_game_values(game);
+	init_game_values2(game);
 	return (EXIT_SUCCESS);
 }

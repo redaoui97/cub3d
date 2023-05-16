@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/01 20:14:56 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/16 14:10:54 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,8 @@ typedef struct s_global_settings
 /*===========execution functions===========*/
 int		execution(t_global_settings *game);
 void	init_ray(t_global_settings *game);
+//delete this prototype later
+void	init_rayx(t_global_settings *game);
 void	raycasting(t_global_settings *game);
 void	find_wall(t_global_settings *game);
 

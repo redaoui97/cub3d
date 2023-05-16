@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:11:33 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/15 23:54:57 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/16 14:20:27 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,24 +36,31 @@ void	find_wall(t_global_settings *game)
 
 void	init_ray(t_global_settings *game)
 {
+	/*
+		Initializes the values used to calculate the ray:
+		+cameraX is the x coordinate to the camera depending on ray X
+		+rayDirX is the x coordinate to the ray direction vector 
+	*/
+	game->cameraX = 2 * (game->x / (double)(GAME_WIDTH)) - 1;
+	game->ray.rayDirX = game->dirX + game->planeX * game->cameraX;
+	game->ray.rayDirY = game->dirY + game->planeY * game->cameraX;
+	game->mapX = (int)game->posX;
+	game->mapY = (int)game->posY;
+	if (game->ray.rayDirX == 0)
+		game->ray.deltaDistX = 1e30;
+	else
+		game->ray.deltaDistX = fabs(1 / game->ray.rayDirX);
+	if (game->ray.rayDirY == 0)
+		game->ray.deltaDistY = 1e30;
+	else
+		game->ray.deltaDistY = fabs(1 / game->ray.rayDirY);
+}
+
+void	init_rayx(t_global_settings *game)
+{
 	int	i;
 	
-	while (game->x < GAME_WIDTH)
-	{
-		game->cameraX = 2 * (game->x / (double)(GAME_WIDTH)) - 1;
-		game->ray.rayDirX = game->dirX + game->planeX * game->cameraX;
-		game->ray.rayDirY = game->dirY + game->planeY * game->cameraX;
-		game->mapX = (int)game->posX;
-		game->mapY = (int)game->posY;
-		if (game->ray.rayDirX == 0)
-		game->ray.deltaDistX = 1e30;
-		else
-			game->ray.deltaDistX = fabs(1 / game->ray.rayDirX);
-		if (game->ray.rayDirY == 0)
-			game->ray.deltaDistY = 1e30;
-		else
-			game->ray.deltaDistY = fabs(1 / game->ray.rayDirY);
-		game->hit = 0;
+	game->hit = 0;
 		if (game->ray.rayDirX < 0)
 		{
 			game->stepX = -1;
@@ -110,8 +117,6 @@ void	init_ray(t_global_settings *game)
 		i = game->draw_end;
 		while (++i < GAME_HEIGHT)
 			game->mlxset.img.arr[i * GAME_WIDTH + game->x] = 0x7CFC00;
-		game->x++;
-	}
 	
 }
 
