@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:11:33 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/16 17:44:35 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/16 18:53:11 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	init_ray2(t_global_settings *game)
 		game->sideDistY = (game->mapY + 1.0 - game->posY) * game->ray.deltaDistY;
 	}
 }
+
 void	find_wall(t_global_settings *game)
 {
 	game->hit = 0;
