@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:47:07 by rnabil            #+#    #+#             */
-/*   Updated: 2023/04/28 15:03:14 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/16 15:32:06 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 int	execution(t_global_settings *game)
 {
-	while (game->x < GAME_WIDTH)
-	{
-		raycasting(game);
-		(game->x)++;
-	}
+	raycasting(game);
 	return(0);
 }

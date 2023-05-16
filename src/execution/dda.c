@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:11:33 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/16 14:20:27 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/16 15:31:41 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@ try to implement it diffrently
 */
 #include "cub3d.h"
 
+/*
+	loops through each vertical line of the screen, for a total 
+	of game window width size
+*/
 void	raycasting(t_global_settings *game)
 {
-	/*loops through each vertical line of the screen, for a total 
-	of game window width size*/
 	while (game->x < GAME_WIDTH)
 	{
 		init_ray(game);
+		init_rayx(game);
 		(game->x)++;
 	}	
 	mlx_put_image_to_window(game->mlxset.mlx, game->mlxset.win_ptr, game->mlxset.img.img, 0, 0);
@@ -34,13 +37,13 @@ void	find_wall(t_global_settings *game)
 	(void)game;
 }
 
+/*
+	Initializes the values used to calculate the ray:
+	+cameraX is the x coordinate to the camera depending on ray X
+	+rayDirX is the x coordinate 
+*/
 void	init_ray(t_global_settings *game)
 {
-	/*
-		Initializes the values used to calculate the ray:
-		+cameraX is the x coordinate to the camera depending on ray X
-		+rayDirX is the x coordinate to the ray direction vector 
-	*/
 	game->cameraX = 2 * (game->x / (double)(GAME_WIDTH)) - 1;
 	game->ray.rayDirX = game->dirX + game->planeX * game->cameraX;
 	game->ray.rayDirY = game->dirY + game->planeY * game->cameraX;
