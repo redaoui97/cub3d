@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/16 14:10:54 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/16 17:37:04 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ typedef	struct	s_ray
 
 typedef struct	s_map
 {
-	char			**map;
-	char			direction;
-	int				starting_x;
-	int				starting_y;
-	int				ceiling_color;
-	int				floor_color;
+	char		**map;
+	char		direction;
+	int			starting_x;
+	int			starting_y;
+	int			ceiling_color;
+	int			floor_color;
 }				t_map;
 
 typedef struct s_global_settings
@@ -103,23 +103,25 @@ typedef struct s_global_settings
 
 /*===========execution functions===========*/
 int		execution(t_global_settings *game);
-void	init_ray(t_global_settings *game);
-//delete this prototype later
-void	init_rayx(t_global_settings *game);
 void	raycasting(t_global_settings *game);
+void	init_ray(t_global_settings *game);
+void	init_ray2(t_global_settings *game);
 void	find_wall(t_global_settings *game);
+void	set_border(t_global_settings *game);
+void	set_colors(t_global_settings *game);
 
-int   	key_press(int key_pressed, t_global_settings *game);
-void    go_straight(t_global_settings *game);
-void    go_back(t_global_settings *game);
-void    go_left(t_global_settings *game);
-void    go_right(t_global_settings *game);
+/*===========hooks functions===========*/
+int		key_press(int key_pressed, t_global_settings *game);
+void	go_straight(t_global_settings *game);
+void	go_back(t_global_settings *game);
+void	go_left(t_global_settings *game);
+void	go_right(t_global_settings *game);
 void	rotate_left(t_global_settings *game);
 void	rotate_right(t_global_settings *game);
-int 	rgb_to_color(unsigned int red, unsigned int green, unsigned int blue);
 
 /*==============parsing functions==============*/
 void	map_check(char *map_file);
+
 /*===============error functions===============*/
 void	fatal_error(char *msg);
 void	simple_error(char *msg);
