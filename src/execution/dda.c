@@ -6,17 +6,12 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:11:33 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/17 14:35:39 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/17 17:21:07 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/*
-	Initializes the values used to calculate the ray:
-	+camera_x is the x coordinate to the camera depending on ray X
-	+ray_dir_x is the x coordinate 
-*/
 void	init_ray(t_global_settings *game)
 {
 	game->camera_x = 2 * (game->x / (double)(GAME_WIDTH)) - 1;
@@ -34,7 +29,7 @@ void	init_ray(t_global_settings *game)
 		game->ray.delta_dist_y = fabs(1 / game->ray.ray_dir_y);
 }
 
-void	init_ray2(t_global_settings *game)
+void	init_raydir(t_global_settings *game)
 {
 	if (game->ray.ray_dir_x < 0)
 	{
@@ -83,16 +78,19 @@ void	find_wall(t_global_settings *game)
 	}
 }
 
-void	set_border(t_global_settings *game)
+void	calculate_distance(t_global_settings *game)
 {
+	printf("x %f  y %f\n", game->pos_x, game->pos_y);
 	if (game->side == 0)
-		game->perp_wall_dist
-			= fabs((game->map_x - game->pos_x + (1 - game->step_x) / 2)
-				/ game->ray.ray_dir_x);
+		// game->perp_wall_dist
+		// 	= fabs((game->map_x - game->pos_x + (1 - game->step_x) / 2)
+		// 		/ game->ray.ray_dir_x);
+		game->perp_wall_dist = (game->side_dist_x - game->ray.delta_dist_x);
 	else
-		game->perp_wall_dist
-			= fabs((game->map_y - game->pos_y + (1 - game->step_y) / 2)
-				/ game->ray.ray_dir_y);
+		// game->perp_wall_dist
+		// 	= fabs((game->map_y - game->pos_y + (1 - game->step_y) / 2)
+		// 		/ game->ray.ray_dir_y);
+		game->perp_wall_dist = (game->side_dist_y - game->ray.delta_dist_y);
 	if (!game->perp_wall_dist)
 		game->perp_wall_dist = 1;
 	game->line_height = (int)(GAME_HEIGHT / game->perp_wall_dist);
@@ -110,9 +108,13 @@ void	set_colors(t_global_settings *game)
 
 	i = -1;
 	while (++i < game->draw_start)
+	{
 		game->mlxset.img.arr[i * GAME_WIDTH + game->x]
 			= game->map.ceiling_color;
+	}
 	i = game->draw_end;
 	while (++i < GAME_HEIGHT)
+	{
 		game->mlxset.img.arr[i * GAME_WIDTH + game->x] = game->map.floor_color;
+	}
 }

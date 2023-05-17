@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:37:02 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/17 14:34:30 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/17 16:02:51 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	init_map(t_global_settings *game)
 	(game->map.map)[8] = NULL;
 	game->map.starting_x = 5;
 	game->map.starting_y = 2;
-	game->map.direction = 'N';
+	game->map.direction = 'S';
 	game->map.ceiling_color = 100000;
 	game->map.floor_color = 10000;
 }

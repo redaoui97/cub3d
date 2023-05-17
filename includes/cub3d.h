@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/17 14:37:48 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/17 18:06:51 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define GAME_HEIGHT 1024
 # define GAME_WIDTH 1024
 # define SPEED 0.1
-# define ROTATION_ANGLE 0.11
+# define ROTATION_ANGLE 0.10
 # define UP_KEY 13
 # define DOWN_KEY 1
 # define LEFT_KEY 0
@@ -104,9 +104,9 @@ typedef struct s_global_settings
 int		execution(t_global_settings *game);
 void	raycasting(t_global_settings *game);
 void	init_ray(t_global_settings *game);
-void	init_ray2(t_global_settings *game);
+void	init_raydir(t_global_settings *game);
 void	find_wall(t_global_settings *game);
-void	set_border(t_global_settings *game);
+void	calculate_distance(t_global_settings *game);
 void	set_colors(t_global_settings *game);
 
 /*===========hooks functions===========*/

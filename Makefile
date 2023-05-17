@@ -6,7 +6,7 @@
 #    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 14:30:38 by rnabil            #+#    #+#              #
-#    Updated: 2023/05/17 14:25:46 by rnabil           ###   ########.fr        #
+#    Updated: 2023/05/17 16:10:49 by rnabil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,11 +43,11 @@ CUB3DHEADER = -I includes
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
-	$(CC) $(OBJ) $(INCLUDES) $(CUB3DHEADER) $(LIBMLX) $(OPTS) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(OBJ) $(INCLUDES) $(CUB3DHEADER) $(LIBMLX) $(OPTS) -g -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 $(OBJDIR)/%.o: %.c $(HEADER)
 	mkdir -p $(dir $@)
-	$(CC) -Wall -Wextra -Werror $(OPTS) $(CUB3DHEADER) $(OPTS) -c $< -o $@
+	$(CC) -Wall -Wextra -Werror $(OPTS) $(CUB3DHEADER) $(OPTS) -g -c $< -o $@
 
 NAME		= cub3D
 CC			= cc

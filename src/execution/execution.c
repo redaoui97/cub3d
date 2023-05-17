@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:47:07 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/17 14:22:19 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/17 16:07:07 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,14 @@ int	execution(t_global_settings *game)
 	return (0);
 }
 
-/*
-	loops through each vertical line of the screen, for a total 
-	of game window_width size
-*/
 void	raycasting(t_global_settings *game)
 {
 	while (game->x < GAME_WIDTH)
 	{
 		init_ray(game);
-		init_ray2(game);
+		init_raydir(game);
 		find_wall(game);
-		set_border(game);
+		calculate_distance(game);
 		set_colors(game);
 		(game->x)++;
 	}	

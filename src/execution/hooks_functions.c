@@ -6,21 +6,24 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:25:05 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/17 14:34:30 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/17 17:21:35 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+//change those values == '0'
 void	go_straight(t_global_settings *game)
 {
+	if (game->perp_wall_dist < 0.2)
+		return ;
 	if ((game->map.map)[(int)(game->pos_x + game->dir_x * SPEED)]
-		[(int)(game->pos_y)] != '1')
+		[(int)(game->pos_y)] == '0')
 	{
 		game->pos_x += game->dir_x * SPEED;
 	}
 	if ((game->map.map)[(int)(game->pos_x)]
-		[(int)(game->pos_y + game->dir_y * SPEED)] != '1')
+		[(int)(game->pos_y + game->dir_y * SPEED)] == '0')
 	{
 		game->pos_y += game->dir_y * SPEED;
 	}
@@ -42,6 +45,8 @@ void	go_back(t_global_settings *game)
 
 void	go_left(t_global_settings *game)
 {
+	if (game->perp_wall_dist < 0.2)
+		return ;
 	if ((game->map.map[(int)(game->pos_x + game->dir_x - game->plane_x)]
 		[(int)(game->pos_y)] != '1'))
 	{
@@ -56,6 +61,8 @@ void	go_left(t_global_settings *game)
 
 void	go_right(t_global_settings *game)
 {
+	if (game->perp_wall_dist < 0.2)
+		return ;
 	if ((game->map.map[(int)(game->pos_x + game->dir_x + game->plane_x)]
 		[(int)(game->pos_y)] != '1'))
 	{
