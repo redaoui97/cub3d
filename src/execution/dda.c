@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:11:33 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/17 17:21:07 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/17 18:33:54 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,24 +82,20 @@ void	calculate_distance(t_global_settings *game)
 {
 	printf("x %f  y %f\n", game->pos_x, game->pos_y);
 	if (game->side == 0)
-		// game->perp_wall_dist
-		// 	= fabs((game->map_x - game->pos_x + (1 - game->step_x) / 2)
-		// 		/ game->ray.ray_dir_x);
 		game->perp_wall_dist = (game->side_dist_x - game->ray.delta_dist_x);
 	else
-		// game->perp_wall_dist
-		// 	= fabs((game->map_y - game->pos_y + (1 - game->step_y) / 2)
-		// 		/ game->ray.ray_dir_y);
 		game->perp_wall_dist = (game->side_dist_y - game->ray.delta_dist_y);
 	if (!game->perp_wall_dist)
 		game->perp_wall_dist = 1;
-	game->line_height = (int)(GAME_HEIGHT / game->perp_wall_dist);
+	game->line_height = (int)(GAME_HEIGHT / (game->perp_wall_dist));
 	game->draw_start = -game->line_height / 2 + GAME_HEIGHT / 2;
 	if (game->draw_start < 0)
 		game->draw_start = 0;
 	game->draw_end = game->line_height / 2 + GAME_HEIGHT / 2;
 	if (game->draw_end >= GAME_HEIGHT)
 		game->draw_end = GAME_HEIGHT - 1;
+	if (game->x < (GAME_WIDTH / 2))
+		game->perp_wall_dist_left = game->perp_wall_dist;
 }
 
 void	set_colors(t_global_settings *game)

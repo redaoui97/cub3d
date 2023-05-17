@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/17 18:06:51 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/17 18:32:38 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ typedef struct s_global_settings
 	double			side_dist_x;
 	double			side_dist_y;
 	double			perp_wall_dist;
+	double			perp_wall_dist_left;
 	double			line_height;
 	double			draw_start;
 	double			draw_end;

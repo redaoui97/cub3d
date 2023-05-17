@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:25:05 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/17 17:21:35 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/17 18:48:37 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //change those values == '0'
 void	go_straight(t_global_settings *game)
 {
-	if (game->perp_wall_dist < 0.2)
+	if (game->perp_wall_dist < 0.2 || game->perp_wall_dist_left < 0.2)
 		return ;
 	if ((game->map.map)[(int)(game->pos_x + game->dir_x * SPEED)]
 		[(int)(game->pos_y)] == '0')
@@ -45,7 +45,7 @@ void	go_back(t_global_settings *game)
 
 void	go_left(t_global_settings *game)
 {
-	if (game->perp_wall_dist < 0.2)
+	if (game->perp_wall_dist_left < 0.2)
 		return ;
 	if ((game->map.map[(int)(game->pos_x + game->dir_x - game->plane_x)]
 		[(int)(game->pos_y)] != '1'))
