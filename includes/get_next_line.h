@@ -3,28 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: Mriskyin <Mriskyin-team@student.42.ma>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/16 10:12:35 by ajordan-          #+#    #+#             */
-/*   Updated: 2021/10/20 00:19:06 by ajordan-         ###   ########.fr       */
+/*   Created: 2021/11/09 16:49:39 by mazzouzi          #+#    #+#             */
+/*   Updated: 2023/05/16 14:09:45 by Mriskyin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-
+# include <unistd.h>
 # include <stdlib.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000
-# endif
-
 char	*get_next_line(int fd);
-char	*ft_read_to_left_str(int fd, char *left_str);
-char	*ft_strchr(char *s, int c);
-char	*ft_strjoin(char *left_str, char *buff);
-size_t	ft_strlen(char *s);
-char	*ft_get_line(char *left_str);
-char	*ft_new_left_str(char *left_str);
-
+int		ft_core(char **buf, char **line, int *i, char **reminder);
+char	*ft_clean(char *buf, char *line);
+char	*ft_strndup(char *s, size_t size);
+int		return_endl_index(char *s);
+char	*strnjoin(char *s1, char *s2, int n);
+char	*ft_strcat(char *dest, char *src);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+void	*ft_calloc(size_t count, size_t size);
+size_t	ft_strlen(const char *s);
 #endif

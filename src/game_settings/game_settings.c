@@ -3,43 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   game_settings.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: Mriskyin <Mriskyin-team@student.42.ma>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:37:02 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/01 18:34:19 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/16 15:26:03 by Mriskyin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 //to delete
-static void	init_map(t_global_settings *game)
-{
-	//manually setting up the map struct values
-	char map[8][8] = {
-		{'1','1','1','1','1','1','1','1'},
-		{'1','0','0','1','0','0','0','1'},
-		{'1','0','0','1','0','0','0','1'},
-		{'1','0','0','1','0','0','0','1'},
-		{'1','0','0','1','0','0','0','1'},
-		{'1','0','0','N','0','0','0','1'},
-		{'1','0','0','0','0','0','0','1'},
-		{'1','1','1','1','1','1','1','1'},
-	};
-	game->map.map = malloc(sizeof(char *) * 8);
-	for(int i=0; i<8; i++)
-	{
-		(game->map.map)[i] = malloc(sizeof(int)*8);
-		ft_memcpy((game->map.map)[i], map[i], 8);
-	}
-	game->map.starting_x = 5;
-	game->map.starting_y = 3;
-	game->map.direction = 'W';
-}
+// static void	init_map(t_global_settings *game)
+// {
+// 	//manually setting up the map struct values
+// 	char map[8][8] = {
+// 		{'1','1','1','1','1','1','1','1'},
+// 		{'1','0','0','1','0','0','0','1'},
+// 		{'1','0','0','1','0','0','0','1'},
+// 		{'1','0','0','1','0','0','0','1'},
+// 		{'1','0','0','1','0','0','0','1'},
+// 		{'1','0','0','N','0','0','0','1'},
+// 		{'1','0','0','0','0','0','0','1'},
+// 		{'1','1','1','1','1','1','1','1'},
+// 	};
+// 	game->map.map = malloc(sizeof(char *) * 8);
+// 	for(int i=0; i<8; i++)
+// 	{
+// 		(game->map.map)[i] = malloc(sizeof(int)*8);
+// 		ft_memcpy((game->map.map)[i], map[i], 8);
+// 	}
+// 	m.init_x = 5;
+// 	m.init_y = 3;
+// 	m.direction = 'W';
+// }
 
 static void	init_game_values(t_global_settings *game)
 {
-	init_map(game);
+	//init_map(game);
 	game->posX = game->map.starting_x;
 	game->posY = game->map.starting_y;
 	if (game->map.direction == 'N')

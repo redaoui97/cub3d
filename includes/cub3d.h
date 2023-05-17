@@ -6,7 +6,7 @@
 /*   By: Mriskyin <Mriskyin-team@student.42.ma>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/15 19:26:04 by Mriskyin         ###   ########.fr       */
+/*   Updated: 2023/05/17 14:54:41 by Mriskyin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <math.h>
 # include <string.h>
 # include "mlx.h"
+# include "libft.h"
+# include "get_next_line.h"
 
 # define GAME_HEIGHT 1024
 # define GAME_WIDTH 1024
@@ -32,6 +34,8 @@
 # define RIGHT_KEY 2
 # define LEFT_ARROW_KEY 123
 # define RIGHT_ARROW_KEY 124
+# define SUCCESS 0
+# define FAIL 	-1
 
 typedef struct s_rgb {
 	int r;
@@ -39,27 +43,35 @@ typedef struct s_rgb {
 	int b;
 } t_rgb;
 
+// parsing struct
 typedef struct s_map {
 	char *n_t;
 	char *s_t;
 	char *w_t;
 	char *e_t;
 
-	int floor;
-	int ceiling;
+	int floor_color;
+	int ceiling_color;
 
 	char **map;
 	// how many rows in the map.
-	int y;
+	size_t y;
 
 	// player
 	char direction;
-	int init_x;
-	int init_y;
+	int starting_x;
+	int starting_y;
 }	t_map;
 
-// global var
-t_map m;
+typedef	struct	s_ray
+{
+	double		rayDirX;
+	double		rayDirY;
+	double		deltaDistX;
+	double		deltaDistY;
+	int			map_x;
+	int			map_y;
+}				t_ray;
 
 typedef struct s_img
 {
@@ -76,16 +88,6 @@ typedef struct s_mlx_settings
 	void		*win_ptr;
 	t_img		img;
 }				t_mlx_settings;
-
-typedef	struct	s_ray
-{
-	double		rayDirX;
-	double		rayDirY;
-	double		deltaDistX;
-	double		deltaDistY;
-	int			map_x;
-	int			map_y;
-}				t_ray;
 
 typedef struct s_global_settings
 {
@@ -109,12 +111,12 @@ typedef struct s_global_settings
 	t_map			map;
 	int				ceiling_color;
 	int				floor_color;
+	// player initial position
 	int				mapX;
 	int				mapY;
 	int				hit;
 	int				x;
 	int				side;
-	
 }			 	t_global_settings;
 
 /*=============FUNCTION PROTOTYPES=============*/
@@ -134,19 +136,37 @@ void    go_left(t_global_settings *game);
 void    go_right(t_global_settings *game);
 void	rotate_left(t_global_settings *game);
 void	rotate_right(t_global_settings *game);
-int 	rgb_to_color(unsigned int red, unsigned int green, unsigned int blue);
+
 
 /*==============parsing functions==============*/
-void	map_check(char *map_file);
-int		parse(char *file);
+int		open_file(char *mapfile);
+void	parse_textures_core(t_global_settings *s, char **dir_path);
+int		parse_textures(t_global_settings *s, char *line);
+int		count_p(char **p);
+int		rgb_to_color(char red, char green, char blue);
 
+void	rgb_calc(t_rgb *r, char **rgb);
+int		parse_f_or_c(char *line, char *f_or_c);
+void	read_raw_map(t_global_settings *s, char *line, int map);
+int		check_surroundings(t_global_settings *s, size_t i, size_t j);
+int		check_first_last(t_global_settings *s);
+
+int		condition_direction(t_global_settings *s, int i, int j);
+int		get_player_position(t_global_settings *s);
+int		map_check(t_global_settings *s, size_t i, size_t j);
+int		map_sanity_check(t_global_settings *s);
+int		is_texture(char *line);
+
+int		is_floor(char *line);
+int		is_ceiling(char *line);
+int		check_if_done(t_global_settings *game);
+int		parse_core(t_global_settings *game, int fd);
+int		parse(t_global_settings *game, char *file);
 /*===============error functions===============*/
 void	fatal_error(char *msg);
 void	simple_error(char *msg);
 
 /*===============utils functions===============*/
-int		ft_strlen(char *msg);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
 
 /*===========game settings functions===========*/
 int		set_up_game(t_global_settings *game);
