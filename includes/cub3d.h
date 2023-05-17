@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/16 17:37:04 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/17 14:37:48 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,17 @@ typedef struct s_mlx_settings
 	t_img		img;
 }				t_mlx_settings;
 
-typedef	struct	s_ray
+typedef struct s_ray
 {
-	double		rayDirX;
-	double		rayDirY;
-	double		deltaDistX;
-	double		deltaDistY;
+	double		ray_dir_x;
+	double		ray_dir_y;
+	double		delta_dist_x;
+	double		delta_dist_y;
 	int			map_x;
 	int			map_y;
 }				t_ray;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	char		**map;
 	char		direction;
@@ -73,29 +73,28 @@ typedef struct s_global_settings
 {
 	t_mlx_settings	mlxset;
 	t_ray			ray;
-	double			cameraX;
-	double			posX;
-	double			posY;
-	double			planeX;
-	double			planeY;
-	double			dirX;
-	double			dirY;
-	double			stepX;
-	double			stepY;
-	double			sideDistX;
-	double			sideDistY;
+	double			camera_x;
+	double			pos_x;
+	double			pos_y;
+	double			plane_x;
+	double			plane_y;
+	double			dir_x;
+	double			dir_y;
+	double			step_x;
+	double			step_y;
+	double			side_dist_x;
+	double			side_dist_y;
 	double			perp_wall_dist;
 	double			line_height;
 	double			draw_start;
 	double			draw_end;
 	t_map			map;
-	int				mapX;
-	int				mapY;
+	int				map_x;
+	int				map_y;
 	int				hit;
 	int				x;
 	int				side;
-	
-}			 	t_global_settings;
+}				t_global_settings;
 
 /*=============FUNCTION PROTOTYPES=============*/
 

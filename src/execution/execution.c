@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:47:07 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/16 18:31:21 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/17 14:22:19 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	execution(t_global_settings *game)
 	raycasting(game);
 	mlx_put_image_to_window(game->mlxset.mlx, game->mlxset.win_ptr,
 		game->mlxset.img.img, 0, 0);
-	return(0);
+	return (0);
 }
 
 /*

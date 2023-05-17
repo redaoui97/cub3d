@@ -29,8 +29,8 @@ set up img array mlx_get_data_addr
 
 
 Variables needed:
-posX posY 	position vector of the player in the map.
-dirX dirY 	direction vector of the player in the map.
+pos_x pos_y 	position vector of the player in the map.
+dir_x dir_y 	direction vector of the player in the map.
 planX planY	camera plane of the player in the map.
 
 Info:

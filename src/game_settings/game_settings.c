@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:37:02 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/16 20:03:24 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/17 14:34:30 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,24 @@ static void	init_map(t_global_settings *game)
 	//map**
 	//starting position
 	//player direction
-	char map[8][9] = {
-		{' ','1','1','1','1','1','1','1','1'},
-		{' ','1','0','0','1','0','0','0','1'},
-		{' ','1','0','0','1','0','0','0','1'},
-		{' ','1','0','0','1','0','0','0','1'},
-		{' ','1','0','0','1','0','0','0','1'},
-		{' ','1','0','0','0','0','0','0','1'},
-		{' ','1','0','0','0','0','0','0','1'},
-		{' ','1','1','1','1','1','1','1','1'},
+	char map[8][8] = {
+		{'1','1','1','1','1','1','1','1'},
+		{'1','0','0','1','0','0','0','1'},
+		{'1','0','0','1','0','0','0','1'},
+		{'1','0','0','1','0','0','0','1'},
+		{'1','0','0','1','0','0','0','1'},
+		{'1','0','0','0','0','0','0','1'},
+		{'1','0','0','0','0','0','0','1'},
+		{'1','1','1','1','1','1','1','1'},
 	};
-	game->map.map = malloc(sizeof(char *) * 8);
-	for(int i=0; i<9; i++)
+	game->map.map = malloc(sizeof(char *) * 9);
+	for(int i=0; i<8; i++)
 	{
-		(game->map.map)[i] = malloc(sizeof(char) * 10);
-		ft_memcpy((game->map.map)[i], map[i], 9);
-		(game->map.map)[i][9] = '\0';
+		(game->map.map)[i] = malloc(sizeof(char) * 9);
+		ft_memcpy((game->map.map)[i], map[i], 8);
+		(game->map.map)[i][8] = '\0';
 	}
+	(game->map.map)[8] = NULL;
 	game->map.starting_x = 5;
 	game->map.starting_y = 2;
 	game->map.direction = 'N';
@@ -45,21 +46,21 @@ static void	init_map(t_global_settings *game)
 
 static void	init_game_values(t_global_settings *game)
 {
-	game->posX = game->map.starting_x;
-	game->posY = game->map.starting_y;
+	game->pos_x = game->map.starting_x;
+	game->pos_y = game->map.starting_y;
 	if (game->map.direction == 'N')
 	{
-		game->dirX = -1;
-		game->dirY = 0;
-		game->planeX = 0;
-		game->planeY = 0.66;
+		game->dir_x = -1;
+		game->dir_y = 0;
+		game->plane_x = 0;
+		game->plane_y = 0.66;
 	}
 	else if (game->map.direction == 'S')
 	{
-		game->dirX = 1;
-		game->dirY = 0;
-		game->planeX = 0;
-		game->planeY = 0.66;
+		game->dir_x = 1;
+		game->dir_y = 0;
+		game->plane_x = 0;
+		game->plane_y = 0.66;
 	}
 }
 
@@ -67,17 +68,17 @@ static void	init_game_values1(t_global_settings *game)
 {
 	if (game->map.direction == 'E')
 	{
-		game->dirX = 0;
-		game->dirY = 1;
-		game->planeX = 0.66;
-		game->planeY = 0;
+		game->dir_x = 0;
+		game->dir_y = 1;
+		game->plane_x = 0.66;
+		game->plane_y = 0;
 	}
 	else if (game->map.direction == 'W')
 	{
-		game->dirX = 0;
-		game->dirY = -1;
-		game->planeX = 0.66;
-		game->planeY = 0;
+		game->dir_x = 0;
+		game->dir_y = -1;
+		game->plane_x = 0.66;
+		game->plane_y = 0;
 	}
 }
 

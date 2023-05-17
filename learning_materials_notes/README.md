@@ -5,16 +5,16 @@ Article about ray casting: https://lodev.org/cgtutor/raycasting.html
 <p>
 <h3>Variables description</h3>
 <ul>
-    <li> double posX, posY : starting position of the player </li>
-    <li> double dirX, dirY : direction of the player's view</li>
-    <li> double planeX, planeY: camera plane vector</li>
-    <li> double cameraX: </li>
-    <li> double rayDirX, rayDirY:</li>
-    <li> int mapX, mapY:</li>
-    <li> double sideDistX, sideDistY: </li>
-    <li> double deltaDistX, deltaDistY: </li>
+    <li> double pos_x, pos_y : starting position of the player </li>
+    <li> double dir_x, dir_y : direction of the player's view</li>
+    <li> double plane_x, plane_y: camera plane vector</li>
+    <li> double camera_x: </li>
+    <li> double ray_dir_x, ray_dir_y:</li>
+    <li> int map_x, map_y:</li>
+    <li> double side_dist_x, side_dist_y: </li>
+    <li> double delta_dist_x, delta_dist_y: </li>
     <li> double perpWallDist:</li>
-    <li> int stepX, stepY</li>
+    <li> int step_x, step_y</li>
     <li> int hit: </li>
     <li> int side: </li>
 </ul>
