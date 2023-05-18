@@ -1,11 +1,11 @@
 SO textures/wood1.xpm
-C 53,168,230
-EA      textures/wood3.xpm
-F    81,41,28
-
+EA textures/wood3.xpm
 NO textures/wood0.xpm
-
 WE textures/wood2.xpm
+F 81,41,28
+C 53,168,230
+
+
 111111111111111
 100000100000001
 1000011111111111111111111
