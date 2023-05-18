@@ -6,7 +6,7 @@
 #    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 14:30:38 by rnabil            #+#    #+#              #
-#    Updated: 2023/05/18 16:00:38 by rnabil           ###   ########.fr        #
+#    Updated: 2023/05/18 16:34:02 by rnabil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,16 @@ CUB3DHEADER = -Iincludes
 EXECUTION	= $(addprefix execution/, execution dda hooks hooks_functions)
 GAME		= $(addprefix game_settings/, game_settings)
 ERRORS		= $(addprefix errors/, error)
-UTILS		= $(addprefix utils/, )
-PARSING		= $(addprefix parsing/, parsing)
+UTILS		= $(addprefix parsing/get_next_line/, get_next_line get_next_line_utils)
+PARSING		= $(addprefix parsing/, parsing parsing_map_check parsing_map parsing_utils)
+LIBFT		= $(addprefix parsing/, ft_isalpha ft_isdigit ft_isalnum ft_isascii \
+			ft_isprint ft_strlen ft_memset ft_bzero ft_memcpy \
+			ft_memmove ft_strlcpy ft_strlcat ft_toupper ft_tolower \
+			ft_strchr ft_strrchr ft_strncmp ft_memchr ft_memcmp \
+			ft_strnstr ft_atoi ft_calloc ft_strdup ft_substr ft_strjoin \
+			ft_strtrim ft_split ft_itoa ft_strmapi ft_striteri \
+			ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd)
 FILES		= $(addprefix src/, cub3d $(ERRORS) $(UTILS) $(PARSING) $(GAME) $(EXECUTION)) 
-
 SRC			= $(FILES:=.c)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
 HEADER		= $(addprefix includes/, cub3d.h)

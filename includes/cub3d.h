@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/18 16:14:15 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/18 16:22:40 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@
 # define RIGHT_KEY 2
 # define LEFT_ARROW_KEY 123
 # define RIGHT_ARROW_KEY 124
+# define SUCCESS 0
+# define FAIL 	-1
+
+typedef struct s_rgb {
+	int r;
+	int g;
+	int b;
+} t_rgb;
 
 typedef struct s_img
 {
@@ -61,8 +69,13 @@ typedef struct s_ray
 
 typedef struct s_map
 {
+	char 		*n_t;
+	char 		*s_t;
+	char 		*w_t;
+	char 		*e_t;
 	char		**map;
 	char		direction;
+	size_t 		y;
 	int			starting_x;
 	int			starting_y;
 	int			ceiling_color;
@@ -120,7 +133,29 @@ void	rotate_left(t_global_settings *game);
 void	rotate_right(t_global_settings *game);
 
 /*==============parsing functions==============*/
-void	map_check(char *map_file);
+int		open_file(char *mapfile);
+void	parse_textures_core(t_global_settings *s, char **dir_path);
+int		parse_textures(t_global_settings *s, char *line);
+int		count_p(char **p);
+int		rgb_to_color(char red, char green, char blue);
+
+void	rgb_calc(t_rgb *r, char **rgb);
+int		parse_f_or_c(char *line, char *f_or_c);
+void	read_raw_map(t_global_settings *s, char *line, int map);
+int		check_surroundings(t_global_settings *s, size_t i, size_t j);
+int		check_first_last(t_global_settings *s);
+
+int		condition_direction(t_global_settings *s, int i, int j);
+int		get_player_position(t_global_settings *s);
+int		map_check(t_global_settings *s, size_t i, size_t j);
+int		map_sanity_check(t_global_settings *s);
+int		is_texture(char *line);
+
+int		is_floor(char *line);
+int		is_ceiling(char *line);
+int		check_if_done(t_global_settings *game);
+int		parse_core(t_global_settings *game, int fd);
+int		parse(t_global_settings *game, char *file);
 
 /*===============error functions===============*/
 void	fatal_error(char *msg);
