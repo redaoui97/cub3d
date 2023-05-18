@@ -6,38 +6,11 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 17:00:25 by mazzouzi          #+#    #+#             */
-/*   Updated: 2023/05/18 16:15:34 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/18 16:46:51 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*res;
-	size_t	i;
-
-	res = malloc(size * count);
-	if (res == 0)
-		return (0);
-	i = 0;
-	while (i < size * count)
-	{
-		((char *)res)[i] = 0;
-		i++;
-	}
-	return (res);
-}
 
 char	*ft_strncat(char *dst, char *src, int n)
 {
