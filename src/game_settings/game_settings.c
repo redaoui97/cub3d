@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:37:02 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/18 16:51:45 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/18 20:07:07 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,29 @@
 // 	//map**
 // 	//starting position
 // 	//player direction
-// 	char map[8][8] = {
-// 		{'1','1','1','1','1','1','1','1'},
-// 		{'1','0','0','1','0','0','0','1'},
-// 		{'1','0','0','1','0','0','0','1'},
-// 		{'1','0','0','1','0','0','0','1'},
-// 		{'1','0','0','1','0','0','0','1'},
-// 		{'1','0','0','0','0','0','0','1'},
-// 		{'1','0','0','0','0','0','0','1'},
-// 		{'1','1','1','1','1','1','1','1'},
-// 	};
-// 	game->map.map = malloc(sizeof(char *) * 9);
-// 	for(int i=0; i<8; i++)
-// 	{
-// 		(game->map.map)[i] = malloc(sizeof(char) * 9);
-// 		ft_memcpy((game->map.map)[i], map[i], 8);
-// 		(game->map.map)[i][8] = '\0';
-// 	}
-// 	(game->map.map)[8] = NULL;
+// 	// char map[8][8] = {
+// 	// 	{'1','1','1','1','1','1','1','1'},
+// 	// 	{'1','0','0','1','0','0','0','1'},
+// 	// 	{'1','0','0','1','0','0','0','1'},
+// 	// 	{'1','0','0','1','0','0','0','1'},
+// 	// 	{'1','0','0','1','0','0','0','1'},
+// 	// 	{'1','0','0','0','0','0','0','1'},
+// 	// 	{'1','0','0','0','0','0','0','1'},
+// 	// 	{'1','1','1','1','1','1','1','1'},
+// 	// };
+// 	// game->map.map = malloc(sizeof(char *) * 9);
+// 	// for(int i=0; i<8; i++)
+// 	// {
+// 	// 	(game->map.map)[i] = malloc(sizeof(char) * 9);
+// 	// 	ft_memcpy((game->map.map)[i], map[i], 8);
+// 	// 	(game->map.map)[i][8] = '\0';
+// 	// }
+// 	// (game->map.map)[8] = NULL;
 // 	game->map.starting_x = 5;
 // 	game->map.starting_y = 2;
-// 	game->map.direction = 'S';
-// 	game->map.ceiling_color = 100000;
-// 	game->map.floor_color = 10000;
+// 	// game->map.direction = 'S';
+// 	// game->map.ceiling_color = 100000;
+// 	// game->map.floor_color = 10000;
 // }
 
 static void	init_game_values(t_global_settings *game)
@@ -103,6 +103,8 @@ int	set_up_game(t_global_settings *game)
 	if (game->mlxset.img.arr == NULL)
 		return (EXIT_FAILURE);
 	//init_map(game);
+	game->map.starting_x = 5;
+	game->map.starting_y = 2;
 	init_game_values(game);
 	init_game_values1(game);
 	return (EXIT_SUCCESS);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
+/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 15:03:20 by mazzouzi          #+#    #+#             */
-/*   Updated: 2023/05/17 16:26:55 by mazzouzi         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:52:40 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,10 @@ int	check_first_last(t_global_settings *s)
 		i++;
 	}
 	i = 0;
-	while (i < ft_strlen(s->map.map[s->map.y - 1]))
+	while (i < ft_strlen(s->map.map[s->map.y]))
 	{
-		if (s->map.map[s->map.y - 1][i] != ' '
-			&& s->map.map[s->map.y - 1][i] != '1')
+		if (s->map.map[s->map.y][i] != ' '
+			&& s->map.map[s->map.y][i] != '1')
 			return (FAIL);
 		i++;
 	}

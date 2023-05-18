@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:11:33 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/17 18:33:54 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/18 20:37:37 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ void	find_wall(t_global_settings *game)
 
 void	calculate_distance(t_global_settings *game)
 {
-	printf("x %f  y %f\n", game->pos_x, game->pos_y);
 	if (game->side == 0)
 		game->perp_wall_dist = (game->side_dist_x - game->ray.delta_dist_x);
 	else
@@ -94,7 +93,7 @@ void	calculate_distance(t_global_settings *game)
 	game->draw_end = game->line_height / 2 + GAME_HEIGHT / 2;
 	if (game->draw_end >= GAME_HEIGHT)
 		game->draw_end = GAME_HEIGHT - 1;
-	if (game->x < (GAME_WIDTH / 2))
+	if (game->x == 0)
 		game->perp_wall_dist_left = game->perp_wall_dist;
 }
 

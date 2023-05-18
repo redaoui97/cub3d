@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:59:44 by mazzouzi          #+#    #+#             */
-/*   Updated: 2023/05/18 16:16:42 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/18 20:18:30 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ int	parse_core(t_global_settings *game, int fd)
 
 	if (get_player_position(game) != SUCCESS)
 		fatal_error("error getting player position and/or direction.");
-	printf("here\n");
 	if (map_sanity_check(game) != SUCCESS)
 		fatal_error("error parsing the map!");
 	return (SUCCESS);
