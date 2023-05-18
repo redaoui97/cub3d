@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
+/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:59:44 by mazzouzi          #+#    #+#             */
-/*   Updated: 2023/05/17 16:25:43 by mazzouzi         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:16:42 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdlib.h>
 #include "cub3d.h"
-#include "get_next_line.h"
-#include "../libft/libft.h"
 
 int	is_floor(char *line)
 {

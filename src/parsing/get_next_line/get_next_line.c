@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
+/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 16:57:38 by mazzouzi          #+#    #+#             */
-/*   Updated: 2023/05/17 15:03:35 by mazzouzi         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:15:49 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "cub3d.h"
 
 int	return_endl_index(char *s)
 {
