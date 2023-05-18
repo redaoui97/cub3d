@@ -6,11 +6,11 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 04:49:26 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/18 16:35:50 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/18 16:37:19 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
 int	ft_isalnum(int c)
 {

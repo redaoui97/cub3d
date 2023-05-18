@@ -6,11 +6,11 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 13:06:30 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/18 16:35:40 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/18 16:39:30 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
 static char	*remspace(const char *str)
 {
