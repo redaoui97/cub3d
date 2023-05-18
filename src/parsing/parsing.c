@@ -3,30 +3,92 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 18:24:18 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/17 14:27:26 by rnabil           ###   ########.fr       */
+/*   Created: 2023/05/17 14:59:44 by mazzouzi          #+#    #+#             */
+/*   Updated: 2023/05/18 12:23:59 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
 #include "cub3d.h"
+#include "get_next_line.h"
+#include "../libft/libft.h"
 
-static	int	file_check(char *mapfile)
+int	is_floor(char *line)
 {
-	int	fd;
+	char	*tmp;
 
-	fd = open(mapfile, O_RDONLY);
-	if (fd == -1)
-		fatal_error("Error reading map! Check if the map exists \
-		and is accessible!");
-	return (fd);
+	tmp = ft_strtrim(line, " \n\v\r\t\f");
+	if (!ft_strncmp(tmp, "F ", 2))
+	{
+		free(tmp);
+		return (1);
+	}
+	return (0);
 }
 
-void	map_check(char *map_file)
+int	is_ceiling(char *line)
 {
-	int	file_fd;
+	char	*tmp;
 
-	(void)file_fd;
-	file_fd = file_check(map_file);
+	tmp = ft_strtrim(line, " \n\v\r\t\f");
+	if (!ft_strncmp(tmp, "C ", 2))
+	{
+		free(tmp);
+		return (1);
+	}
+	return (0);
+}
+
+int	check_if_done(t_global_settings *game)
+{
+	if (
+		game->map.e_t != NULL && game->map.n_t != NULL
+		&& game->map.s_t != NULL && game->map.w_t != NULL
+		&& game->map.ceiling_color != 0 && game->map.floor_color != 0
+	)
+		return (1);
+	return (0);
+}
+
+int	parse_core(t_global_settings *game, int fd)
+{
+	char	*line;
+
+	while (check_if_done(game) != 1)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		if (line[0] == '\n')
+			continue ;
+		if (is_texture(line))
+			parse_textures(game, line);
+		else if (is_floor(line))
+			parse_f_or_c(line, "F");
+		else if (is_ceiling(line))
+			parse_f_or_c(line, "C");
+		else
+			read_raw_map(game, line, fd);
+		free(line);
+	}
+
+	if (get_player_position(game) != SUCCESS)
+		fatal_error("error getting player position and/or direction.");
+	if (map_sanity_check(game) != SUCCESS)
+		fatal_error("error parsing the map!");
+	return (SUCCESS);
+}
+
+int	parse(t_global_settings *game, char *file)
+{
+	int	map;
+
+	map = open_file(file);
+	parse_core(game, map);
+	return (0);
 }
