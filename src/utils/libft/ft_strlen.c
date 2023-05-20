@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 04:57:15 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/18 16:41:06 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/19 15:00:18 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *s)
 	size_t	a;
 
 	a = 0;
+	if (!s)
+		return (0);
 	while (s[a])
 		a++;
 	return (a);
