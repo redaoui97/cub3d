@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 13:58:19 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/18 20:41:30 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/20 15:21:29 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@
 */
 int	key_press(int key_pressed, t_global_settings *game)
 {
-	if (key_pressed == UP_KEY)
+	if (key_press_rotate(key_pressed, game) == 0)
+		return (0);
+	if (key_pressed == ESCAPE_KEY)
+		free_and_exit(game);
+	else if (key_pressed == UP_KEY)
 		go_straight(game);
 	else if (key_pressed == DOWN_KEY)
 		go_back(game);
@@ -26,10 +30,33 @@ int	key_press(int key_pressed, t_global_settings *game)
 		go_left(game);
 	else if (key_pressed == RIGHT_KEY)
 		go_right(game);
-	else if (key_pressed == LEFT_ARROW_KEY)
-		rotate_left(game);
+	else
+		return (1);
+	game->x = 0;
+	mlx_destroy_image(game->mlxset.mlx, game->mlxset.img.img);
+	game->mlxset.img.img = mlx_new_image
+		(game->mlxset.mlx, GAME_WIDTH, GAME_HEIGHT);
+	mlx_clear_window(game->mlxset.mlx, game->mlxset.win_ptr);
+	execution(game);
+	return (0);
+}
+
+int	key_press_rotate(int key_pressed, t_global_settings *game)
+{
+	if (key_pressed == LEFT_ARROW_KEY)
+	{
+		if (game->map.direction == 'W' || game->map.direction == 'S')
+			rotate_left(game);
+		else if (game->map.direction == 'N' || game->map.direction == 'E')
+			rotate_right(game);
+	}
 	else if (key_pressed == RIGHT_ARROW_KEY)
-		rotate_right(game);
+	{
+		if (game->map.direction == 'W' || game->map.direction == 'S')
+			rotate_right(game);
+		else if (game->map.direction == 'N' || game->map.direction == 'E')
+			rotate_left(game);
+	}
 	else
 		return (1);
 	game->x = 0;

@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/18 22:50:30 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/20 15:08:20 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define RIGHT_KEY 2
 # define LEFT_ARROW_KEY 123
 # define RIGHT_ARROW_KEY 124
+# define ESCAPE_KEY 53
 # define SUCCESS 0
 # define FAIL 	-1
 
@@ -125,6 +126,8 @@ void	set_colors(t_global_settings *game);
 
 /*===========hooks functions===========*/
 int		key_press(int key_pressed, t_global_settings *game);
+int		key_press_rotate(int key_pressed, t_global_settings *game);
+void	free_and_exit(t_global_settings *game);
 void	go_straight(t_global_settings *game);
 void	go_back(t_global_settings *game);
 void	go_left(t_global_settings *game);
