@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:47:07 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/20 16:09:17 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/21 18:55:25 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	raycasting(t_global_settings *game)
 {
 	while (game->x < GAME_WIDTH)
 	{
+		if (init_textures(game) == FAIL)
+			fatal_error("Error initializing textures!");
 		init_ray(game);
 		init_raydir(game);
 		find_wall(game);

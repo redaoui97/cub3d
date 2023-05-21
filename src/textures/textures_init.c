@@ -6,27 +6,48 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 21:57:41 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/21 16:03:31 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/21 18:53:29 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d"
-
-int init_textures(t_global_settings *game)
-{
-	if (init_texture_n(game) == FAIL)
-		return (FAIL);
-	else if (init_texture_s(game) == FAIL)
-		return (FAIL);
-	else if (init_texture_w(game) == FAIL)
-		return (FAIL);
-	else if (init_texture_e(game) == FAIL)
-		return (FAIL);
-	else
-		return (SUCCESS);
-}
+#include "cub3d.h"
 
 static int	init_texture_n(t_global_settings *game)
 {
-	
+	void	*mlx_image;
+
+	mlx_image = mlx_xpm_file_to_image(game->mlxset.mlx, game->map.n_t, GAME_WIDTH, GAME_HEIGHT);
+	if (!mlx_image)
+		return (FAIL);
+	game->n_texture.texture_array = mlx_get_data_addr(game->mlxset.img.img, game->mlxset.img.bits_per_pixel
+		,game->mlxset.img.size_line, game->mlxset.img.endian);
+}
+
+static int	init_texture_s(t_global_settings *game)
+{
+	(void)game;
+}
+
+static int	init_texture_w(t_global_settings *game)
+{
+	(void)game;	
+}
+
+static int	init_texture_e(t_global_settings *game)
+{
+	(void)game;	
+}
+
+int	init_textures(t_global_settings *game)
+{
+	if (init_texture_n(game) == FAIL)
+		return (FAIL);
+	// else if (init_texture_s(game) == FAIL)
+	// 	return (FAIL);
+	// else if (init_texture_w(game) == FAIL)
+	// 	return (FAIL);
+	// else if (init_texture_e(game) == FAIL)
+	// 	return (FAIL);
+	else
+		return (SUCCESS);
 }

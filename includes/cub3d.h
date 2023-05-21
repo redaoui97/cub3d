@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/20 15:08:20 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/21 18:49:47 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,16 @@
 # define SUCCESS 0
 # define FAIL 	-1
 
+typedef struct s_texture {
+	int			*texture_array;
+	
+}				t_texture;
+
 typedef struct s_rgb {
 	int r;
 	int g;
 	int b;
-} t_rgb;
+}				t_rgb;
 
 typedef struct s_img
 {
@@ -70,13 +75,13 @@ typedef struct s_ray
 
 typedef struct s_map
 {
+	size_t 		y;
 	char 		*n_t;
 	char 		*s_t;
 	char 		*w_t;
 	char 		*e_t;
 	char		**map;
 	char		direction;
-	size_t 		y;
 	int			starting_x;
 	int			starting_y;
 	int			ceiling_color;
@@ -87,6 +92,11 @@ typedef struct s_global_settings
 {
 	t_mlx_settings	mlxset;
 	t_ray			ray;
+	t_map			map;
+	t_texture		n_texture;
+	t_texture		s_texture;
+	t_texture		e_texture;
+	t_texture		w_texture;
 	double			camera_x;
 	double			pos_x;
 	double			pos_y;
@@ -103,7 +113,6 @@ typedef struct s_global_settings
 	double			line_height;
 	double			draw_start;
 	double			draw_end;
-	t_map			map;
 	int				map_x;
 	int				map_y;
 	int				hit;
@@ -123,6 +132,7 @@ void	init_raydir(t_global_settings *game);
 void	find_wall(t_global_settings *game);
 void	calculate_distance(t_global_settings *game);
 void	set_colors(t_global_settings *game);
+int		init_textures(t_global_settings *game);
 
 /*===========hooks functions===========*/
 int		key_press(int key_pressed, t_global_settings *game);
