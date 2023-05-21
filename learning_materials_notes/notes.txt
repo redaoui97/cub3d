@@ -47,3 +47,11 @@ color parser
 
 Parsing: 
 +parse file : 
+-----------------------
+
+1-fix segfault on backwards
+2-fix segfalult on initial player position
+3-fix smoothness by adding the keypress and keyrelease
+4-rendering
+	-initiliaze textures
+	-

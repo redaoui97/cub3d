@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:37:02 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/18 20:07:07 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/20 21:10:36 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,10 +102,10 @@ int	set_up_game(t_global_settings *game)
 		&(game->mlxset.img.endian));
 	if (game->mlxset.img.arr == NULL)
 		return (EXIT_FAILURE);
-	//init_map(game);
 	game->map.starting_x = 5;
 	game->map.starting_y = 2;
 	init_game_values(game);
 	init_game_values1(game);
+	(game->map.map)[game->map.starting_x][game->map.starting_y] = '0';
 	return (EXIT_SUCCESS);
 }

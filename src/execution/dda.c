@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:11:33 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/18 20:37:37 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/20 22:20:04 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,11 @@ void	calculate_distance(t_global_settings *game)
 		game->perp_wall_dist = (game->side_dist_y - game->ray.delta_dist_y);
 	if (!game->perp_wall_dist)
 		game->perp_wall_dist = 1;
-	game->line_height = (int)(GAME_HEIGHT / (game->perp_wall_dist));
-	game->draw_start = -game->line_height / 2 + GAME_HEIGHT / 2;
+	game->line_height = (int)(GAME_HEIGHT / (game->perp_wall_dist * 1.5));
+	game->draw_start = (GAME_HEIGHT - game->line_height) / 2;
 	if (game->draw_start < 0)
 		game->draw_start = 0;
-	game->draw_end = game->line_height / 2 + GAME_HEIGHT / 2;
+	game->draw_end = (GAME_HEIGHT + game->line_height) / 2;
 	if (game->draw_end >= GAME_HEIGHT)
 		game->draw_end = GAME_HEIGHT - 1;
 	if (game->x == 0)
@@ -110,6 +110,7 @@ void	set_colors(t_global_settings *game)
 	i = game->draw_end;
 	while (++i < GAME_HEIGHT)
 	{
-		game->mlxset.img.arr[i * GAME_WIDTH + game->x] = game->map.floor_color;
+		game->mlxset.img.arr[i * GAME_WIDTH + game->x]
+			= game->map.floor_color;
 	}
 }
