@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:34:14 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/20 22:06:59 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/21 17:22:42 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	//manually parsing floor color and ceiling color
 	game.map.ceiling_color = 100000;
 	game.map.floor_color = 10000;
-	mlx_hook(game.mlxset.win_ptr, 3, 0, key_press, &game);
+	mlx_hook(game.mlxset.win_ptr, 2, 0, key_press, &game);
 	//mlx_hook(game.mlxset.win_ptr, 2, 0, key_press_rotate, &game);
 	mlx_loop_hook(game.mlxset.mlx, execution, &game);
 	mlx_loop(game.mlxset.mlx);

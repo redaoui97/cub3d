@@ -52,6 +52,6 @@ Parsing:
 1-fix segfault on backwards
 2-fix segfalult on initial player position
 3-fix smoothness by adding the keypress and keyrelease
-4-rendering
+4-textures
 	-initiliaze textures
-	-
+	-implement the textures inside the array and then render 

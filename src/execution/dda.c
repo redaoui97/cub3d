@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:11:33 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/20 22:20:04 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/21 17:39:03 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	find_wall(t_global_settings *game)
 			game->map_y += game->step_y;
 			game->side = 1;
 		}
+		printf("mapy: %d mapx: %d\n", game->map_y, game->map_x);
 		if (game->map.map[game->map_x][game->map_y] == '1')
 			game->hit = 1;
 	}

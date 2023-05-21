@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 15:03:13 by mazzouzi          #+#    #+#             */
-/*   Updated: 2023/05/18 19:14:40 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/21 17:28:45 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ int	get_player_position(t_global_settings *s)
 				if (check_surroundings(s, i, j) == FAIL)
 					return (FAIL);
 				s->map.direction = s->map.map[j][i];
-				s->map.starting_x = i;
-				s->map.starting_y = j;
+				s->map.starting_x = j;
+				s->map.starting_y = i;
+				printf("i %zu  j %zu = %c\n", i, j, s->map.map[j][i]);
 				return (SUCCESS);
 			}
 			i++;
