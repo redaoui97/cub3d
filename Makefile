@@ -6,7 +6,7 @@
 #    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 14:30:38 by rnabil            #+#    #+#              #
-#    Updated: 2023/05/20 21:56:59 by rnabil           ###   ########.fr        #
+#    Updated: 2023/05/21 20:06:40 by rnabil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ HEADER        = includes/cub3d.h
 CUB3DHEADER = -Iincludes
 
 EXECUTION	= $(addprefix execution/, execution dda hooks hooks_functions)
-TEXTURES	= $(addprefix textures/, textures_init )
+TEXTURES	= $(addprefix textures/, textures_init)
 GAME		= $(addprefix game_settings/, game_settings)
 ERRORS		= $(addprefix errors/, error)
 PARSING		= $(addprefix parsing/, parsing parsing_map_check parsing_map parsing_utils)
@@ -39,7 +39,7 @@ LIBFT		= $(addprefix utils/libft/, ft_isalpha ft_isdigit ft_isalnum ft_isascii \
 			ft_strnstr ft_atoi ft_calloc ft_strdup ft_substr ft_strjoin \
 			ft_strtrim ft_split ft_itoa ft_strmapi ft_striteri \
 			ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd)
-FILES		= $(addprefix src/, cub3d $(ERRORS) $(UTILS) $(PARSING) $(GAME) $(EXECUTION) $(LIBFT)) 
+FILES		= $(addprefix src/, cub3d $(TEXTURES) $(ERRORS) $(UTILS) $(PARSING) $(GAME) $(EXECUTION) $(LIBFT)) 
 SRC			= $(FILES:=.c)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
 HEADER		= $(addprefix includes/, cub3d.h)
