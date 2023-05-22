@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:08:32 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/20 15:13:07 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/22 15:21:43 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ void	simple_error(char *msg)
 void	free_and_exit(t_global_settings *game)
 {
 	(void)game;
-	//free_attributes(game);
 	exit(0);
 }
