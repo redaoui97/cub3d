@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:34:14 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/21 17:22:42 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/22 16:35:59 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	main(int argc, char **argv)
 	parse(&game, argv[1]);
 	if (set_up_game(&game) == EXIT_FAILURE)
 		fatal_error("Error setting up mlx settings!");
+	if (init_textures(&game) == FAIL)
+		fatal_error("Error initializing textures!");
 	//manually parsing floor color and ceiling color
 	game.map.ceiling_color = 100000;
 	game.map.floor_color = 10000;

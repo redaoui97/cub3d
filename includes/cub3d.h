@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/21 20:03:41 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/22 17:52:15 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,13 @@
 # define FAIL 	-1
 
 typedef struct s_texture {
+	void		*texture_img_ptr;
 	int			*texture_array;
-	
+	int			bits_per_pixel;
+	int			size_line;
+	int			endian;
+	int			texture_width;
+	int			texture_height;
 }				t_texture;
 
 typedef struct s_rgb {
