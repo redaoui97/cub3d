@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 09:04:50 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/18 16:38:59 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/22 15:09:46 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	first;
 	size_t	last;
 
-	if (!s1)
-		return (NULL);
 	if (!*s1)
 		return (ft_strdup(""));
 	first = 0;

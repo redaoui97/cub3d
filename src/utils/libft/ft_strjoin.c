@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 08:57:17 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/18 16:40:57 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/22 12:08:17 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (j < ft_strlen(s2))
 		a[i++] = s2[j++];
 	a[i] = '\0';
+	free((void *)s1);
 	return (a);
 }

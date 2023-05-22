@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
+#    By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 14:30:38 by rnabil            #+#    #+#              #
-#    Updated: 2023/05/21 20:06:40 by rnabil           ###   ########.fr        #
+#    Updated: 2023/05/22 11:30:09 by mazzouzi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ LIBFT		= $(addprefix utils/libft/, ft_isalpha ft_isdigit ft_isalnum ft_isascii \
 FILES		= $(addprefix src/, cub3d $(TEXTURES) $(ERRORS) $(UTILS) $(PARSING) $(GAME) $(EXECUTION) $(LIBFT)) 
 SRC			= $(FILES:=.c)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= $(addprefix includes/, cub3d.h)
+HEADER		= $(addprefix includes/, cub3d.h get_next_line.h)
 CUB3DHEADER = -I includes
 
 .PHONY: all clean fclean re bonus norm

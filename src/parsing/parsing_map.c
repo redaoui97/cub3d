@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 15:03:20 by mazzouzi          #+#    #+#             */
-/*   Updated: 2023/05/18 18:52:40 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/22 15:10:18 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	parse_f_or_c(char *line, char *f_or_c)
 
 	tmp = ft_strtrim(line, " \n\v\r\t\f");
 	p = ft_split(tmp, ' ');
+	free(tmp);
 	if (p == NULL || ft_strncmp(p[0], f_or_c, 2) || p[1] == NULL)
 		fatal_error("something went wrong parsing the map!\n");
 	rgb = ft_split(p[1], ',');
@@ -63,6 +64,7 @@ void	read_raw_map(t_global_settings *s, char *line, int map)
 	}
 	s->map.map = ft_split(tmp, '\n');
 	s->map.y = y;
+	free(tmp);
 }
 
 int	check_surroundings(t_global_settings *s, size_t i, size_t j)

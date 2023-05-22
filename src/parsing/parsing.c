@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:59:44 by mazzouzi          #+#    #+#             */
-/*   Updated: 2023/05/18 20:18:30 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/22 15:19:01 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	is_floor(char *line)
 		free(tmp);
 		return (1);
 	}
+	free(tmp);
 	return (0);
 }
 
@@ -35,6 +36,7 @@ int	is_ceiling(char *line)
 		free(tmp);
 		return (1);
 	}
+	free(tmp);
 	return (0);
 }
 
@@ -59,7 +61,10 @@ int	parse_core(t_global_settings *game, int fd)
 		if (line == NULL)
 			break ;
 		if (line[0] == '\n')
+		{
+			free(line);
 			continue ;
+		}
 		if (is_texture(line))
 			parse_textures(game, line);
 		else if (is_floor(line))
@@ -70,7 +75,6 @@ int	parse_core(t_global_settings *game, int fd)
 			read_raw_map(game, line, fd);
 		free(line);
 	}
-
 	if (get_player_position(game) != SUCCESS)
 		fatal_error("error getting player position and/or direction.");
 	if (map_sanity_check(game) != SUCCESS)
@@ -82,6 +86,7 @@ int	parse(t_global_settings *game, char *file)
 {
 	int	map;
 
+	ft_memset(&game->map, 0, sizeof game->map);
 	map = open_file(file);
 	parse_core(game, map);
 	return (0);

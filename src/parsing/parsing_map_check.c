@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map_check.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 15:03:13 by mazzouzi          #+#    #+#             */
-/*   Updated: 2023/05/21 17:28:45 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/22 12:07:33 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	get_player_position(t_global_settings *s)
 	if (check_first_last(s) == FAIL)
 		return (FAIL);
 	j = 1;
-	while (j < s->map.y - 1)
+	while (s->map.map[j])
 	{
 		i = 0;
 		while (s->map.map[j][i] != '\x00')
@@ -38,7 +38,6 @@ int	get_player_position(t_global_settings *s)
 				s->map.direction = s->map.map[j][i];
 				s->map.starting_x = j;
 				s->map.starting_y = i;
-				printf("i %zu  j %zu = %c\n", i, j, s->map.map[j][i]);
 				return (SUCCESS);
 			}
 			i++;
@@ -78,7 +77,7 @@ int	map_sanity_check(t_global_settings *s)
 	if (check_first_last(s) == FAIL)
 		return (FAIL);
 	j = 1;
-	while (j < s->map.y - 1)
+	while (s->map.map[j])
 	{
 		i = 0;
 		while (s->map.map[j][i] != '\x00')
@@ -108,5 +107,8 @@ int	is_texture(char *line)
 		return (1);
 	}
 	else
+	{
+		free(tmp);
 		return (0);
+	}
 }
