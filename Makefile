@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
+#    By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 14:30:38 by rnabil            #+#    #+#              #
-#    Updated: 2023/05/22 18:57:20 by rnabil           ###   ########.fr        #
+#    Updated: 2023/05/23 10:35:44 by mazzouzi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ $(NAME): $(OBJ) $(HEADER)
 	$(CC) $(OBJ) $(INCLUDES) $(CUB3DHEADER) $(LIBMLX) $(OPTS) -g -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 $(OBJDIR)/%.o: %.c $(HEADER)
-	mkdir -p $(dir $@)
+	@mkdir -p $(dir $@)
 	$(CC) -Wall -Wextra -Werror $(OPTS) $(CUB3DHEADER) $(OPTS) -g -c $< -o $@
 
 NAME		= cub3D
