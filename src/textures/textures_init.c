@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 21:57:41 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/22 18:49:09 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 14:55:29 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static int	init_texture_n(t_global_settings *game)
 {
 	game->n_texture.texture_img_ptr = mlx_xpm_file_to_image(game->mlxset.mlx
-		, "./textures/wood0.xpm", &(game->n_texture.texture_width)
+		, game->map.n_t, &(game->n_texture.texture_width)
 			, &(game->n_texture.texture_height));
 	if (!(game->n_texture.texture_img_ptr))
 		return (FAIL);
@@ -29,7 +29,7 @@ static int	init_texture_n(t_global_settings *game)
 static int	init_texture_s(t_global_settings *game)
 {
 	game->s_texture.texture_img_ptr = mlx_xpm_file_to_image(game->mlxset.mlx
-		, "./textures/wood1.xpm", &(game->s_texture.texture_width)
+		, game->map.s_t, &(game->s_texture.texture_width)
 			, &(game->s_texture.texture_height));
 	if (!(game->s_texture.texture_img_ptr))
 		return (FAIL);
@@ -42,7 +42,7 @@ static int	init_texture_s(t_global_settings *game)
 static int	init_texture_w(t_global_settings *game)
 {
 	game->w_texture.texture_img_ptr = mlx_xpm_file_to_image(game->mlxset.mlx
-		, "./textures/wood2.xpm", &(game->w_texture.texture_width)
+		, game->map.w_t, &(game->w_texture.texture_width)
 			, &(game->w_texture.texture_height));
 	if (!(game->w_texture.texture_img_ptr))
 		return (FAIL);
@@ -55,7 +55,7 @@ static int	init_texture_w(t_global_settings *game)
 static int	init_texture_e(t_global_settings *game)
 {
 	game->e_texture.texture_img_ptr = mlx_xpm_file_to_image(game->mlxset.mlx
-		, "./textures/wood3.xpm", &(game->e_texture.texture_width)
+		, game->map.e_t, &(game->e_texture.texture_width)
 			, &(game->e_texture.texture_height));
 	if (!(game->e_texture.texture_img_ptr))
 		return (FAIL);
