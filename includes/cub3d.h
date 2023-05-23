@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
+/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/23 10:56:30 by mazzouzi         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:02:15 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ typedef struct s_global_settings
 	t_texture		s_texture;
 	t_texture		e_texture;
 	t_texture		w_texture;
+	t_texture		*current_texture;
 	double			camera_x;
 	double			pos_x;
 	double			pos_y;
@@ -118,16 +119,18 @@ typedef struct s_global_settings
 	double			line_height;
 	double			draw_start;
 	double			draw_end;
+	double			wall_hit_pos;
 	int				map_x;
 	int				map_y;
 	int				hit;
 	int				x;
 	int				side;
+	int				x_tex;
 }				t_global_settings;
 
+/*=============================================*/
 /*=============FUNCTION PROTOTYPES=============*/
-
-/*===============main functions================*/
+/*=============================================*/
 
 /*===========execution functions===========*/
 int		execution(t_global_settings *game);
@@ -140,7 +143,7 @@ void	set_colors(t_global_settings *game);
 
 /*===========textures functions===========*/
 int		init_textures(t_global_settings *game);
-void	locate_wall_texture(t_global_settings *game);
+void	apply_textures(t_global_settings *game);
 
 /*===========hooks functions===========*/
 int		key_press(int key_pressed, t_global_settings *game);
@@ -181,8 +184,6 @@ int		parse(t_global_settings *game, char *file);
 /*===============error functions===============*/
 void	fatal_error(char *msg);
 void	simple_error(char *msg);
-
-/*===============utils functions===============*/
 
 /*===========game settings functions===========*/
 int		set_up_game(t_global_settings *game);

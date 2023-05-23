@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:47:07 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/23 10:04:11 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 11:50:53 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	raycasting(t_global_settings *game)
 		find_wall(game);
 		calculate_distance(game);
 		set_colors(game);
-		locate_wall_texture(game);
+		apply_textures(game);
 		(game->x)++;
 	}	
 }

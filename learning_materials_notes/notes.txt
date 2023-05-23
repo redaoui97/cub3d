@@ -49,6 +49,8 @@ Parsing:
 +parse file : 
 -----------------------
 
+side_dist_x : length of ray from current position to the next x or y side
+the player in our example case starts close to the top left side of the square?
 -fix segfault on backwards
 	+check the lodev implementation and see how he managed to move
 	potential fix:
