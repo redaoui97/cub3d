@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:37:02 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/22 16:35:14 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/22 18:55:59 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,5 @@ int	set_up_game(t_global_settings *game)
 	init_game_values(game);
 	init_game_values1(game);
 	(game->map.map)[game->map.starting_x][game->map.starting_y] = '0';
-	//hardcoded textures:
-	
 	return (EXIT_SUCCESS);
 }

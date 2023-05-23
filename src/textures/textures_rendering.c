@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execution.c                                        :+:      :+:    :+:   */
+/*   textures_rendering.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/21 15:47:07 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/23 10:04:11 by rnabil           ###   ########.fr       */
+/*   Created: 2023/05/22 18:56:49 by rnabil            #+#    #+#             */
+/*   Updated: 2023/05/23 10:12:50 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	execution(t_global_settings *game)
+void	locate_wall_texture(t_global_settings *game)
 {
-	raycasting(game);
-	mlx_put_image_to_window(game->mlxset.mlx, game->mlxset.win_ptr,
-		game->mlxset.img.img, 0, 0);
-	return (0);
-}
-
-void	raycasting(t_global_settings *game)
-{
-	while (game->x < GAME_WIDTH)
-	{
-		init_ray(game);
-		init_raydir(game);
-		find_wall(game);
-		calculate_distance(game);
-		set_colors(game);
-		locate_wall_texture(game);
-		(game->x)++;
-	}	
+	t_texture	*current_texture;
+	
+	(void)current_texture;
+	if (game->side == 0 && game->step_x == -1)
+		printf("wall looking at N\n");
+	else if (game->side == 0 && game->step_x == 1)
+		printf("wall looking at S\n");
+	else if (game->side == 1 && game->step_y == -1)
+		printf("wall looking at W\n");
+	else if (game->side == 1 && game->step_y == 1)
+		printf("wall looking at E\n");
 }

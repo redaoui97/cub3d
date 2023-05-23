@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+         #
+#    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 14:30:38 by rnabil            #+#    #+#              #
-#    Updated: 2023/05/22 11:30:09 by mazzouzi         ###   ########.fr        #
+#    Updated: 2023/05/22 18:57:20 by rnabil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ HEADER        = includes/cub3d.h
 CUB3DHEADER = -Iincludes
 
 EXECUTION	= $(addprefix execution/, execution dda hooks hooks_functions)
-TEXTURES	= $(addprefix textures/, textures_init)
+TEXTURES	= $(addprefix textures/, textures_init textures_rendering)
 GAME		= $(addprefix game_settings/, game_settings)
 ERRORS		= $(addprefix errors/, error)
 PARSING		= $(addprefix parsing/, parsing parsing_map_check parsing_map parsing_utils)

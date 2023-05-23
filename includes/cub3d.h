@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/22 17:52:15 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 10:03:55 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,10 @@ void	init_raydir(t_global_settings *game);
 void	find_wall(t_global_settings *game);
 void	calculate_distance(t_global_settings *game);
 void	set_colors(t_global_settings *game);
+
+/*===========textures functions===========*/
 int		init_textures(t_global_settings *game);
+void	locate_wall_texture(t_global_settings *game);
 
 /*===========hooks functions===========*/
 int		key_press(int key_pressed, t_global_settings *game);
