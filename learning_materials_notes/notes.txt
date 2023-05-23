@@ -49,7 +49,6 @@ Parsing:
 +parse file : 
 -----------------------
 
-side_dist_x : length of ray from current position to the next x or y side
 the player in our example case starts close to the top left side of the square?
 -fix segfault on backwards
 	+check the lodev implementation and see how he managed to move
@@ -58,9 +57,4 @@ the player in our example case starts close to the top left side of the square?
 		and reassign old values if we detect that we're.
 	Second fix : add a ray function that casts on 3 directions: left, right, back and add a check function to hooks
 -fix smoothness by adding the keypress and keyrelease
--fix texture names, already handled the missing textures conditions
-	-After fixing textures names, fix them inside the textures initialization
--fix hardcoded ceiling color ; parsing
--textures
-	-add new textures
-	-implement the textures inside the array and then render 
+Game doesn't exit when clicking on x icon
