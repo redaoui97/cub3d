@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
+/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:25:05 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/23 11:59:00 by mazzouzi         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:32:22 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	go_back(t_global_settings *game)
 		if (game->map.map[(int)(game->pos_x)][(int)(game->pos_y)] != '0')
 			game->pos_y = tmp2;
 	}
-	printf("pos_x  %f pos_y %f\n", game->pos_x,game->pos_y);
 }
 
 void	go_left(t_global_settings *game)

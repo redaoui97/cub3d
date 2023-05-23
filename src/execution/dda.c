@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
+/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:11:33 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/22 11:41:24 by mazzouzi         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:32:18 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	find_wall(t_global_settings *game)
 			game->map_y += game->step_y;
 			game->side = 1;
 		}
-		//printf("mapy: %d mapx: %d\n", game->map_y, game->map_x);
 		if (game->map.map[game->map_x][game->map_y] == '1')
 			game->hit = 1;
 	}
