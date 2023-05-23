@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/23 10:03:55 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 10:56:30 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ int		open_file(char *mapfile);
 void	parse_textures_core(t_global_settings *s, char **dir_path);
 int		parse_textures(t_global_settings *s, char *line);
 int		count_p(char **p);
-int		rgb_to_color(char red, char green, char blue);
+int		rgb_to_color(int red, int green, int blue);
 
 void	rgb_calc(t_rgb *r, char **rgb);
 int		parse_f_or_c(char *line, char *f_or_c);

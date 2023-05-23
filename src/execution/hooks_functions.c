@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:25:05 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/21 17:42:20 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 11:59:00 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,20 @@ void	go_straight(t_global_settings *game)
 
 void	go_back(t_global_settings *game)
 {
+	double tmp = game->pos_x;
+	double tmp2 = game->pos_y;
 	
 	if (game->map.map[(int)(game->pos_x - game->dir_x * SPEED)][(int)(game->pos_y)] == '0')
 	{
 		game->pos_x -= game->dir_x * SPEED;
+		if (game->map.map[(int)(game->pos_x)][(int)(game->pos_y)] != '0')
+			game->pos_x = tmp;
 	}
 	if ((game->map.map)[(int)(game->pos_x)][(int)(game->pos_y - game->dir_y * SPEED)] == '0')
 	{
 		game->pos_y -= game->dir_y * SPEED;
+		if (game->map.map[(int)(game->pos_x)][(int)(game->pos_y)] != '0')
+			game->pos_y = tmp2;
 	}
 	printf("pos_x  %f pos_y %f\n", game->pos_x,game->pos_y);
 }
@@ -47,32 +53,33 @@ void	go_left(t_global_settings *game)
 	
 	if (game->map.map[(int)(game->pos_x + game->dir_x - game->plane_x)][(int)(game->pos_y)] == '0')
 	{
-		printf("j %d i %d = %c\n", (int)(game->pos_x + game->dir_x - game->plane_x), (int)(game->pos_y), game->map.map[(int)(game->pos_x + game->dir_x - game->plane_x)][(int)(game->pos_y)]);
 		game->pos_x -= game->plane_x * SPEED;
+		if (game->map.map[(int)(game->pos_x)][(int)(game->pos_y)] != '0')
+			game->pos_x = tmp;
 	}
 	if (game->map.map[(int)(game->pos_x)][(int)(game->pos_y + game->dir_y - game->plane_y)] == '0')
 	{
-		printf("j %d i %d = %c\n", (int)(game->pos_x), (int)(game->pos_y + game->dir_y - game->plane_y), game->map.map[(int)(game->pos_x)][(int)(game->pos_y + game->dir_y - game->plane_y)]);
 		game->pos_y -= game->plane_y * SPEED;
+		if (game->map.map[(int)(game->pos_x)][(int)(game->pos_y)] != '0')
+			game->pos_y = tmp2;
 	}
-	if (game->perp_wall_dist_left < 1)
-	{
-		game->pos_x = tmp;
-		game->pos_y = tmp2;
-	}
-		
 }
 
 void	go_right(t_global_settings *game)
-{
-	if (game->perp_wall_dist < 0.2)
-		return ;
+{	
+	double tmp = game->pos_x;
+	double tmp2 = game->pos_y;
+
 	if (game->map.map[(int)(game->pos_x + game->dir_x + game->plane_x)][(int)(game->pos_y)] == '0')
 	{
 		game->pos_x += game->plane_x * SPEED;
+		if (game->map.map[(int)(game->pos_x)][(int)(game->pos_y)] != '0')
+			game->pos_x = tmp;
 	}
 	if (game->map.map[(int)(game->pos_x)][(int)(game->pos_y + game->dir_y + game->plane_y)] == '0')
 	{
 		game->pos_y += game->plane_y * SPEED;
+		if (game->map.map[(int)(game->pos_x)][(int)(game->pos_y)] != '0')
+			game->pos_y = tmp2;
 	}
 }

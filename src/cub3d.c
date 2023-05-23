@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:34:14 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/23 09:51:44 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 10:37:05 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	main(int argc, char **argv)
 	if (init_textures(&game) == FAIL)
 		fatal_error("Error initializing textures!");
 	//manually parsing floor color and ceiling color
-	game.map.ceiling_color = 100000;
-	game.map.floor_color = 10000;
+	// game.map.ceiling_color = 100000;
+	// game.map.floor_color = 10000;
 	mlx_hook(game.mlxset.win_ptr, 2, 0, key_press, &game);
 	//mlx_hook(game.mlxset.win_ptr, 2, 0, key_press_rotate, &game);
 	mlx_loop_hook(game.mlxset.mlx, execution, &game);

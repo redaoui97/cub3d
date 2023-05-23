@@ -6,7 +6,7 @@
 /*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 15:03:20 by mazzouzi          #+#    #+#             */
-/*   Updated: 2023/05/22 15:10:18 by mazzouzi         ###   ########.fr       */
+/*   Updated: 2023/05/23 11:04:25 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	rgb_calc(t_rgb *r, char **rgb)
 {
+	printf("%s %s %s\n", rgb[0], rgb[1], rgb[2]);
 	r->r = ft_atoi(rgb[0]);
 	r->g = ft_atoi(rgb[1]);
 	r->b = ft_atoi(rgb[2]);

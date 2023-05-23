@@ -6,7 +6,7 @@
 /*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 15:03:24 by mazzouzi          #+#    #+#             */
-/*   Updated: 2023/05/22 13:20:11 by mazzouzi         ###   ########.fr       */
+/*   Updated: 2023/05/23 11:08:52 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ int	open_file(char *mapfile)
 void	parse_textures_core(t_global_settings *s, char **dir_path)
 {
 	if (!ft_strncmp(dir_path[0], "NO", 3))
-		s->map.n_t = dir_path[1];
+		s->map.n_t = ft_strjoin(ft_strdup("./"), dir_path[1]);
 	else if (!ft_strncmp(dir_path[0], "SO", 3))
-		s->map.s_t = dir_path[1];
+		s->map.s_t = ft_strjoin(ft_strdup("./"), dir_path[1]);
 	else if (!ft_strncmp(dir_path[0], "WE", 3))
-		s->map.w_t = dir_path[1];
+		s->map.w_t = ft_strjoin(ft_strdup("./"), dir_path[1]);
 	else if (!ft_strncmp(dir_path[0], "EA", 3))
-		s->map.e_t = dir_path[1];
+		s->map.e_t = ft_strjoin(ft_strdup("./"), dir_path[1]);
 	else
 		fatal_error("Error parsing textures!");
 }
@@ -43,6 +43,7 @@ int	parse_textures(t_global_settings *s, char *line)
 	dir_path = ft_split(line, ' ');
 	parse_textures_core(s, dir_path);
 	free(dir_path[0]);
+	free(dir_path[1]);
 	free(dir_path);
 	return (0);
 }
@@ -60,7 +61,7 @@ int	count_p(char **p)
 	return (i);
 }
 
-int	rgb_to_color(char red, char green, char blue)
+int	rgb_to_color(int red, int green, int blue)
 {
 	return ((red << 16) | (green << 8) | blue);
 }
