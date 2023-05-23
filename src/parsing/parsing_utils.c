@@ -6,7 +6,7 @@
 /*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 15:03:24 by mazzouzi          #+#    #+#             */
-/*   Updated: 2023/05/23 11:08:52 by mazzouzi         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:12:54 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	open_file(char *mapfile)
 
 void	parse_textures_core(t_global_settings *s, char **dir_path)
 {
+	dir_path[1][ft_strlen(dir_path[1]) - 1] = 0;
 	if (!ft_strncmp(dir_path[0], "NO", 3))
 		s->map.n_t = ft_strjoin(ft_strdup("./"), dir_path[1]);
 	else if (!ft_strncmp(dir_path[0], "SO", 3))
