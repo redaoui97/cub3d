@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+         #
+#    By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 14:30:38 by rnabil            #+#    #+#              #
-#    Updated: 2023/05/23 19:39:34 by mazzouzi         ###   ########.fr        #
+#    Updated: 2023/05/23 19:46:54 by rnabil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= cub3D
 	
 CC			= cc
-FLAGS		= -Wall -Wextra -Werror -fsanitze=address
+FLAGS		= -Wall -Wextra -Werror
 RM			= rm -rf
 
 INCLUDES	= -I /usr/local/include
@@ -55,11 +55,6 @@ $(NAME): $(OBJ) $(HEADER)
 $(OBJDIR)/%.o: %.c $(HEADER)
 	@mkdir -p $(dir $@)
 	$(CC) -Wall -Wextra -Werror $(OPTS) $(CUB3DHEADER) $(OPTS) -g -c $< -o $@
-
-NAME		= cub3D
-CC			= cc
-FLAGS		= -Wall -Werror -Wextra -fsanitize=address
-LIBMLX		= -I ../minilibx-linux
 
 clean:
 	$(RM) $(OBJDIR) $(OBJ)
