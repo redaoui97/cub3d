@@ -6,7 +6,7 @@
 /*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 15:03:13 by mazzouzi          #+#    #+#             */
-/*   Updated: 2023/05/22 12:07:33 by mazzouzi         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:28:53 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int	get_player_position(t_global_settings *s)
 {
 	size_t	j;
 	size_t	i;
+	int		count;
 
+	count = 0;
 	if (check_first_last(s) == FAIL)
 		return (FAIL);
 	j = 1;
@@ -33,17 +35,21 @@ int	get_player_position(t_global_settings *s)
 		{
 			if (condition_direction(s, i, j))
 			{
+				++count;
+				if (count == 2)
+					return (FAIL);
 				if (check_surroundings(s, i, j) == FAIL)
 					return (FAIL);
 				s->map.direction = s->map.map[j][i];
 				s->map.starting_x = j;
 				s->map.starting_y = i;
-				return (SUCCESS);
 			}
 			i++;
 		}
 		j++;
 	}
+	if (s->map.direction)
+		return (SUCCESS);
 	return (FAIL);
 }
 
