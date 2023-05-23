@@ -6,16 +6,12 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 13:58:19 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/20 22:06:53 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 17:43:57 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/*
-	There is a problem with the rotation using the initial position of the player
-	E and N make the rotation reversed
-*/
 int	key_press(int key_pressed, t_global_settings *game)
 {
 	if (key_press_rotate(key_pressed, game) == 0)
@@ -23,7 +19,10 @@ int	key_press(int key_pressed, t_global_settings *game)
 	if (key_pressed == ESCAPE_KEY)
 		free_and_exit(game);
 	else if (key_pressed == UP_KEY)
+	{
+		game->press.press_forward = 1;
 		go_straight(game);
+	}
 	else if (key_pressed == DOWN_KEY)
 		go_back(game);
 	else if (key_pressed == LEFT_KEY)

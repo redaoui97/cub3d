@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/23 16:18:42 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 17:58:33 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,16 +93,27 @@ typedef struct s_map
 	int			floor_color;
 }				t_map;
 
+typedef struct s_keypress
+{
+	int			press_forward;
+	int			press_backward;
+	int			press_left;
+	int			press_right;
+	int			press_rotate_right;
+	int			press_rotate_left;
+}				t_keypress;
+
 typedef struct s_global_settings
 {
 	t_mlx_settings	mlxset;
-	t_ray			ray;
-	t_map			map;
+	t_keypress		press;
 	t_texture		n_texture;
 	t_texture		s_texture;
 	t_texture		e_texture;
 	t_texture		w_texture;
 	t_texture		*current_texture;
+	t_ray			ray;
+	t_map			map;
 	double			camera_x;
 	double			pos_x;
 	double			pos_y;
@@ -147,6 +158,7 @@ void	apply_textures(t_global_settings *game);
 
 /*===========hooks functions===========*/
 int		key_press(int key_pressed, t_global_settings *game);
+int		key_release(int key_pressed, t_global_settings *game);
 int		key_press_rotate(int key_pressed, t_global_settings *game);
 int		free_and_exit();
 void	go_straight(t_global_settings *game);

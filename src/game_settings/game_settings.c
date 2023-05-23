@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:37:02 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/22 18:55:59 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 17:42:03 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,19 @@ static void	init_game_values1(t_global_settings *game)
 	}
 }
 
-/*initializes mlx; opens a window; sets up the img and img array*/
+static void	init_key_presses(t_global_settings *game)
+{
+	game->press.press_forward = 0;
+	game->press.press_backward = 0;
+	game->press.press_left = 0;
+	game->press.press_right = 0;
+	game->press.press_rotate_left = 0;
+	game->press.press_rotate_right = 0;
+}
+
 int	set_up_game(t_global_settings *game)
 {
+	init_key_presses(game);
 	game->mlxset.mlx = mlx_init();
 	if (game->mlxset.mlx == NULL)
 		return (EXIT_FAILURE);
