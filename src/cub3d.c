@@ -6,11 +6,32 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:34:14 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/23 17:58:12 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 18:29:34 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	key_press(int key_pressed, t_global_settings *game)
+{
+	if (key_pressed == ESCAPE_KEY)
+		free_and_exit(game);
+	else if (key_pressed == LEFT_ARROW_KEY)
+		game->press.press_rotate_left = 1;
+	else if (key_pressed == RIGHT_ARROW_KEY)
+		game->press.press_rotate_right = 1;
+	else if (key_pressed == UP_KEY)
+		game->press.press_forward = 1;
+	else if (key_pressed == DOWN_KEY)
+		game->press.press_backward = 1;
+	else if (key_pressed == LEFT_KEY)
+		game->press.press_left = 1;
+	else if (key_pressed == RIGHT_KEY)
+		game->press.press_right = 1;
+	else
+		return (1);
+	return (0);
+}
 
 int	key_release(int key_pressed, t_global_settings *game)
 {
@@ -32,6 +53,7 @@ int	key_release(int key_pressed, t_global_settings *game)
 		return (1);
 	return (0);
 }
+
 
 int	main(int argc, char **argv)
 {

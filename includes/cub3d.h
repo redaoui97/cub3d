@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/23 17:58:33 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 18:14:47 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,9 +157,10 @@ int		init_textures(t_global_settings *game);
 void	apply_textures(t_global_settings *game);
 
 /*===========hooks functions===========*/
-int		key_press(int key_pressed, t_global_settings *game);
 int		key_release(int key_pressed, t_global_settings *game);
-int		key_press_rotate(int key_pressed, t_global_settings *game);
+int		key_release(int key_pressed, t_global_settings *game);
+int		key_press_direction(t_global_settings *game);
+int		key_press_rotate(t_global_settings *game);
 int		free_and_exit();
 void	go_straight(t_global_settings *game);
 void	go_back(t_global_settings *game);

@@ -6,28 +6,23 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 13:58:19 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/23 17:43:57 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 18:13:27 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	key_press(int key_pressed, t_global_settings *game)
+int	key_press_direction(t_global_settings *game)
 {
-	if (key_press_rotate(key_pressed, game) == 0)
+	if (key_press_rotate(game) == 0)
 		return (0);
-	if (key_pressed == ESCAPE_KEY)
-		free_and_exit(game);
-	else if (key_pressed == UP_KEY)
-	{
-		game->press.press_forward = 1;
+	else if (game->press.press_forward)
 		go_straight(game);
-	}
-	else if (key_pressed == DOWN_KEY)
+	else if (game->press.press_backward)
 		go_back(game);
-	else if (key_pressed == LEFT_KEY)
+	else if (game->press.press_left)
 		go_left(game);
-	else if (key_pressed == RIGHT_KEY)
+	else if (game->press.press_right)
 		go_right(game);
 	else
 		return (1);
@@ -40,16 +35,16 @@ int	key_press(int key_pressed, t_global_settings *game)
 	return (0);
 }
 
-int	key_press_rotate(int key_pressed, t_global_settings *game)
+int	key_press_rotate(t_global_settings *game)
 {
-	if (key_pressed == LEFT_ARROW_KEY)
+	if (game->press.press_rotate_left)
 	{
 		if (game->map.direction == 'W' || game->map.direction == 'S')
 			rotate_left(game);
 		else if (game->map.direction == 'N' || game->map.direction == 'E')
 			rotate_right(game);
 	}
-	else if (key_pressed == RIGHT_ARROW_KEY)
+	else if (game->press.press_rotate_right)
 	{
 		if (game->map.direction == 'W' || game->map.direction == 'S')
 			rotate_right(game);
