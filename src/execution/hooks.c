@@ -6,34 +6,11 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 13:58:19 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/23 18:13:27 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 18:58:16 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	key_press_direction(t_global_settings *game)
-{
-	if (key_press_rotate(game) == 0)
-		return (0);
-	else if (game->press.press_forward)
-		go_straight(game);
-	else if (game->press.press_backward)
-		go_back(game);
-	else if (game->press.press_left)
-		go_left(game);
-	else if (game->press.press_right)
-		go_right(game);
-	else
-		return (1);
-	game->x = 0;
-	mlx_destroy_image(game->mlxset.mlx, game->mlxset.img.img);
-	game->mlxset.img.img = mlx_new_image
-		(game->mlxset.mlx, GAME_WIDTH, GAME_HEIGHT);
-	mlx_clear_window(game->mlxset.mlx, game->mlxset.win_ptr);
-	execution(game);
-	return (0);
-}
 
 int	key_press_rotate(t_global_settings *game)
 {
@@ -51,14 +28,6 @@ int	key_press_rotate(t_global_settings *game)
 		else if (game->map.direction == 'N' || game->map.direction == 'E')
 			rotate_left(game);
 	}
-	else
-		return (1);
-	game->x = 0;
-	mlx_destroy_image(game->mlxset.mlx, game->mlxset.img.img);
-	game->mlxset.img.img = mlx_new_image
-		(game->mlxset.mlx, GAME_WIDTH, GAME_HEIGHT);
-	mlx_clear_window(game->mlxset.mlx, game->mlxset.win_ptr);
-	execution(game);
 	return (0);
 }
 

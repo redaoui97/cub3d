@@ -6,7 +6,7 @@
 /*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/23 18:14:47 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 19:06:04 by rnabil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 
 # define GAME_HEIGHT 1024
 # define GAME_WIDTH 1024
-# define SPEED 0.1
-# define ROTATION_ANGLE 0.17444444444444446
+# define SPEED 0.05
+# define ROTATION_ANGLE 0.017444444444444446
 # define UP_KEY 13
 # define DOWN_KEY 1
 # define LEFT_KEY 0
@@ -159,7 +159,6 @@ void	apply_textures(t_global_settings *game);
 /*===========hooks functions===========*/
 int		key_release(int key_pressed, t_global_settings *game);
 int		key_release(int key_pressed, t_global_settings *game);
-int		key_press_direction(t_global_settings *game);
 int		key_press_rotate(t_global_settings *game);
 int		free_and_exit();
 void	go_straight(t_global_settings *game);
