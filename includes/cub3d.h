@@ -6,7 +6,7 @@
 /*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/23 19:31:16 by mazzouzi         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:36:23 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,7 @@ int		check_if_done(t_global_settings *game);
 int		parse_core(t_global_settings *game, int fd);
 int		parse(t_global_settings *game, char *file);
 int		player_pos(t_global_settings *s, int *count, int i, int j);
+void	get_position_and_check(t_global_settings *game);
 
 /*===============error functions===============*/
 void	fatal_error(char *msg);

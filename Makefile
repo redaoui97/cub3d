@@ -6,7 +6,7 @@
 #    By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 14:30:38 by rnabil            #+#    #+#              #
-#    Updated: 2023/05/23 10:35:44 by mazzouzi         ###   ########.fr        #
+#    Updated: 2023/05/23 19:39:34 by mazzouzi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ EXECUTION	= $(addprefix execution/, execution dda hooks hooks_functions)
 TEXTURES	= $(addprefix textures/, textures_init textures_rendering)
 GAME		= $(addprefix game_settings/, game_settings)
 ERRORS		= $(addprefix errors/, error)
-PARSING		= $(addprefix parsing/, parsing parsing_map_check parsing_map parsing_utils)
+PARSING		= $(addprefix parsing/, parsing parsing_map_check parsing_map parsing_utils parsing_more_utils)
 UTILS		= $(addprefix utils/get_next_line/, get_next_line get_next_line_utils)
 LIBFT		= $(addprefix utils/libft/, ft_isalpha ft_isdigit ft_isalnum ft_isascii \
 			ft_isprint ft_strlen ft_memset ft_bzero ft_memcpy \

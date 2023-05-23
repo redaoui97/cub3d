@@ -6,7 +6,7 @@
 /*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 15:03:24 by mazzouzi          #+#    #+#             */
-/*   Updated: 2023/05/23 15:12:54 by mazzouzi         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:38:10 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	parse_textures(t_global_settings *s, char *line)
 	free(dir_path);
 	return (0);
 }
-
 
 int	count_p(char **p)
 {

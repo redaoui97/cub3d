@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:34:14 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/23 19:01:33 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 19:38:55 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	key_press(int key_pressed, t_global_settings *game)
 {
 	if (key_pressed == ESCAPE_KEY)
-		free_and_exit(game);
+		free_and_exit();
 	if (key_pressed == LEFT_ARROW_KEY)
 		game->press.press_rotate_left = 1;
 	if (key_pressed == RIGHT_ARROW_KEY)
@@ -34,7 +34,7 @@ int	key_press(int key_pressed, t_global_settings *game)
 int	key_release(int key_pressed, t_global_settings *game)
 {
 	if (key_pressed == ESCAPE_KEY)
-		free_and_exit(game);
+		free_and_exit();
 	if (key_pressed == LEFT_ARROW_KEY)
 		game->press.press_rotate_left = 0;
 	if (key_pressed == RIGHT_ARROW_KEY)
