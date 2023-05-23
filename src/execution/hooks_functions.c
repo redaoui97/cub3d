@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:25:05 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/23 15:32:22 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 15:50:09 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	go_left(t_global_settings *game)
 }
 
 void	go_right(t_global_settings *game)
-{	
+{
 	double tmp = game->pos_x;
 	double tmp2 = game->pos_y;
 
