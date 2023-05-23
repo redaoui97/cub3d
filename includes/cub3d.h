@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnabil <rnabil@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:27:40 by rnabil            #+#    #+#             */
-/*   Updated: 2023/05/23 19:06:04 by rnabil           ###   ########.fr       */
+/*   Updated: 2023/05/23 19:31:16 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ typedef struct s_texture {
 }				t_texture;
 
 typedef struct s_rgb {
-	int r;
-	int g;
-	int b;
+	int	r;
+	int	g;
+	int	b;
 }				t_rgb;
 
 typedef struct s_img
@@ -80,11 +80,11 @@ typedef struct s_ray
 
 typedef struct s_map
 {
-	size_t 		y;
-	char 		*n_t;
-	char 		*s_t;
-	char 		*w_t;
-	char 		*e_t;
+	size_t		y;
+	char		*n_t;
+	char		*s_t;
+	char		*w_t;
+	char		*e_t;
 	char		**map;
 	char		direction;
 	int			starting_x;
@@ -160,7 +160,7 @@ void	apply_textures(t_global_settings *game);
 int		key_release(int key_pressed, t_global_settings *game);
 int		key_release(int key_pressed, t_global_settings *game);
 int		key_press_rotate(t_global_settings *game);
-int		free_and_exit();
+int		free_and_exit(void);
 void	go_straight(t_global_settings *game);
 void	go_back(t_global_settings *game);
 void	go_left(t_global_settings *game);
@@ -192,6 +192,7 @@ int		is_ceiling(char *line);
 int		check_if_done(t_global_settings *game);
 int		parse_core(t_global_settings *game, int fd);
 int		parse(t_global_settings *game, char *file);
+int		player_pos(t_global_settings *s, int *count, int i, int j);
 
 /*===============error functions===============*/
 void	fatal_error(char *msg);

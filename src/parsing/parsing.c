@@ -6,11 +6,24 @@
 /*   By: mazzouzi <mazzouzi@student.42.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:59:44 by mazzouzi          #+#    #+#             */
-/*   Updated: 2023/05/23 11:06:28 by mazzouzi         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:29:03 by mazzouzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int player_pos(t_global_settings *s, int *count, int i, int j)
+{
+	(*count)++;
+	if ((*count) == 2)
+		return (FAIL);
+	if (check_surroundings(s, i, j) == FAIL)
+		return (FAIL);
+	s->map.direction = s->map.map[j][i];
+	s->map.starting_x = j;
+	s->map.starting_y = i;
+	return (SUCCESS);
+}
 
 int	is_floor(char *line)
 {
